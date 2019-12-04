@@ -1,7 +1,11 @@
 {
   "name": "advent_of_code",
   "version": "1.0.0",
+  "scripts": {
+    "lint": "prettier --write --list-different ./**/*.js"
+  },
   "dependencies": {
-    "lodash": "latest"
+    "lodash": "latest",
+    "prettier": "^1.19.1"
   }
 }
