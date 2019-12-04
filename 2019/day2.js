@@ -5,7 +5,7 @@ const path = require("path");
 const computer = require('./computer');
 
 let input = fs
-  .readFileSync(path.resolve(__dirname, "./day2_input.txt"))
+  .readFileSync(path.resolve(__dirname, "./input/day2.txt"))
   .toString()
   .split(",")
   .map(Number);

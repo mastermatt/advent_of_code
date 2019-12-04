@@ -4,8 +4,8 @@ const path = require("path");
 
 const computer = require('./computer');
 
-let input = fs
-  .readFileSync(path.resolve(__dirname, "./day3_input.txt"))
+const [aWireDirs, bWireDirs] = fs
+  .readFileSync(path.resolve(__dirname, "./input/day3.txt"))
   .toString()
   .split("\n")
   .map(Number);
