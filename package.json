@@ -2,10 +2,11 @@
   "name": "advent_of_code",
   "version": "1.0.0",
   "scripts": {
+    "current": "node $(find . -regex '\\./20../day.*\\.js' | sort -r | head -n 1)",
     "lint": "prettier --write --list-different ./**/*.js"
   },
   "dependencies": {
     "lodash": "latest",
-    "prettier": "^1.19.1"
+    "prettier": "latest"
   }
 }
