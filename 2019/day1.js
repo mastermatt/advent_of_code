@@ -10,10 +10,9 @@ let input = fs
 
 const calc = i => ((i / 3) | 0) - 2;
 const fuels = input.map(calc);
-const total = fuels.reduce((a, b) => a + b, 0);
+const total = lodash.sum(fuels);
 
 console.log("part one:", total); // 3161483
-// console.log(lodash.sum(fuels))
 
 const mf = input.map(i => {
   let t = 0;
@@ -26,5 +25,4 @@ const mf = input.map(i => {
   }
 });
 
-const mt = mf2.reduce((a, b) => a + b);
-console.log("part one:", mt); // 4739256
+console.log("part two:", lodash.sum(mf)); // 4739374
