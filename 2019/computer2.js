@@ -1,8 +1,8 @@
+/**
+ * Represents the original version after Day 6
+ */
 exports.execute = (memory, input = []) => {
   let p = 0;
-  let inputIndex = 0;
-  const output = [];
-
   while (true) {
     const optCode = memory[p] % 100;
     const modes = [...String((memory[p] / 100) | 0)];
@@ -17,7 +17,7 @@ exports.execute = (memory, input = []) => {
       if (mode === "1") {
         return memory[pos];
       }
-      throw "bad read mode " + mode;
+      throw " bad read mode " + mode;
     };
 
     const write = (pos, val) => {
@@ -25,18 +25,16 @@ exports.execute = (memory, input = []) => {
       if (mode === "0") {
         memory[memory[pos]] = val;
       } else if (mode === "1") {
-        memory[pos] = val;
+        memory[pos] = parseInt(val);
       } else {
-        throw "bad write mode " + mode;
+        throw " bad write mode " + mode;
       }
     };
 
     if (optCode === 99) {
       // halt
-      return output;
-    }
-
-    if (optCode === 1) {
+      return;
+    } else if (optCode === 1) {
       // adds
       const a = read(p + 1);
       const b = read(p + 2);
@@ -50,23 +48,19 @@ exports.execute = (memory, input = []) => {
       p += 4;
     } else if (optCode === 3) {
       // save
-      const a = input[inputIndex++];
+      const a = input.pop();
 
       if (a === undefined) {
         throw "missing input";
+      } else {
+        console.log("saving", a, "to", p + 1);
       }
-      if(!Number.isSafeInteger(a)) {
-        throw "invalid input: " + a;
-      }
-
-      // console.log("saving input", a, "to", p + 1);
       write(p + 1, a);
       p += 2;
     } else if (optCode === 4) {
       // output
       const a = read(p + 1);
-      // console.log("output", a);
-      output.push(a);
+      console.log("output", a);
       p += 2;
     } else if (optCode === 5) {
       // jump-if-true
