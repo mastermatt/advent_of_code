@@ -2,6 +2,8 @@ const fs = require("fs");
 const lodash = require("lodash");
 const path = require("path");
 
+const DefaultDict = require("../helpers/defaultdict");
+
 const input = fs
   .readFileSync(path.resolve(__dirname, "./input/day6.txt"))
   .toString()
@@ -11,22 +13,13 @@ const input = fs
 // this was a shitty way to go, but my mind blanked on graph structures in the moment.
 // I never would have gone this route if I'd thought it through, I should have kept orbiting values in arrays.
 const orbits = Object.fromEntries(input.map(line => line.split(")").reverse()));
-const counts = {};
+const counts = new DefaultDict(0);
 
 const incr = orbiting => {
-  if (orbiting === "COM") {
-    return;
+  while (orbiting !== "COM") {
+    orbiting = orbits[orbiting];
+    counts[orbiting]++;
   }
-
-  const orbited = orbits[orbiting]; // what I wouldn't give for a defaultdict. (Proxy?)
-
-  if (counts[orbited]) {
-    counts[orbited]++;
-  } else {
-    counts[orbited] = 1;
-  }
-
-  incr(orbited); // silly rabbit
 };
 
 Object.keys(orbits).forEach(incr);
