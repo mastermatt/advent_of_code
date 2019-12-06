@@ -1,14 +1,9 @@
-const fs = require("fs");
 const lodash = require("lodash");
-const path = require("path");
 
 const DefaultDict = require("../helpers/defaultdict");
+const readFile = require("../helpers/readFile");
 
-const input = fs
-  .readFileSync(path.resolve(__dirname, "./input/day6.txt"))
-  .toString()
-  .trim()
-  .split("\n");
+const input = readFile(__dirname, "./input/day6.txt");
 
 // this was a shitty way to go, but my mind blanked on graph structures in the moment.
 // I never would have gone this route if I'd thought it through, I should have kept orbiting values in arrays.
