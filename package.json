@@ -4,7 +4,7 @@
   "scripts": {
     "current": "node $(find . -regex '\\./20../day.*\\.js' | sort -r | head -n 1)",
     "lint": "prettier --write --list-different \"**/*.js\"",
-    "run": "node 2019/day6.js"
+    "run": "node 2019/day8.js"
   },
   "dependencies": {
     "lodash": "latest",
