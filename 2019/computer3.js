@@ -1,3 +1,6 @@
+/**
+ * Represents the original version after Day 7
+ */
 class Computer {
   constructor(memory, ...input) {
     this.memory = memory;
@@ -5,19 +8,24 @@ class Computer {
     this.outBuf = [];
     this.pointer = 0; // instruction pointer
     this.halted = false;
-    this.paused = true; // true when waiting for input
+    this.paused = true;
   }
 
   readNext() {
+    // console.log("output buffer", this.outBuf)
     return this.outBuf.shift();
   }
 
   writeAndExec(...input) {
+    // console.log("input buffer", this.inBuf);
     this.inBuf.push(...input);
     this.execute();
   }
 
   execute() {
+    // let pointer = 0; // instruction pointer
+    // const output = [];
+
     if (this.halted) {
       throw "halted";
     }
@@ -33,6 +41,7 @@ class Computer {
       // console.log(memory[this.pointer], optCode, modes);
 
       if (optCode === 99) {
+        // halt
         this.halted = true;
         // console.log("halted");
         return;
@@ -63,6 +72,7 @@ class Computer {
       const add = () => {
         const a = read(this.pointer + 1);
         const b = read(this.pointer + 2);
+        // console.log("adding", a, b, a + b, "to", this.pointer + 3);
         write(this.pointer + 3, a + b);
         this.pointer += 4;
       };
@@ -77,6 +87,7 @@ class Computer {
       // Opcode 3 takes a single integer as input and saves it to the address given by its only parameter.
       // For example, the instruction 3,50 would take an input value and store it at address 50.
       const readIn = () => {
+        // console.log('reading in', this.inBuf)
         const a = this.inBuf.shift();
 
         if (a === undefined) {
@@ -172,7 +183,7 @@ exports.Computer = Computer;
 exports.execute = (memory, input = []) => {
   const c = new Computer(memory, ...input);
   c.execute();
-  if (!c.halted) {
+  if (c.halted) {
     throw "missing input";
   }
   return c.outBuf;
