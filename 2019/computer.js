@@ -6,6 +6,7 @@ class Computer {
     this.pointer = 0; // instruction pointer
     this.halted = false;
     this.paused = true; // true when waiting for input
+    this.relativeBase = 0;
   }
 
   readNext() {
@@ -41,10 +42,13 @@ class Computer {
       const read = pos => {
         const mode = modes.pop() || "0";
         if (mode === "0") {
-          return memory[memory[pos]];
+          return memory[memory[pos]] || 0;
         }
         if (mode === "1") {
-          return memory[pos];
+          return memory[pos] || 0;
+        }
+        if (mode === "2") {
+          return memory[this.relativeBase + memory[pos]] || 0;
         }
         throw `bad read mode ${mode}`;
       };
@@ -55,6 +59,8 @@ class Computer {
           memory[memory[pos]] = val;
         } else if (mode === "1") {
           memory[pos] = val;
+        } else if (mode === "2") {
+          memory[this.relativeBase + memory[pos]] = val;
         } else {
           throw `bad write mode ${mode}`;
         }
@@ -144,6 +150,14 @@ class Computer {
         this.pointer += 4;
       };
 
+      // Opcode 9 adjusts the relative base by the value of its only parameter.
+      // The relative base increases (or decreases, if the value is negative) by the value of the parameter.
+      const relBase = () => {
+        const a = read(this.pointer + 1);
+        this.relativeBase += a;
+        this.pointer += 2;
+      };
+
       const badCode = () => {
         throw `bad opt code ${optCode}`;
       };
@@ -156,7 +170,8 @@ class Computer {
         5: jumpIfTrue,
         6: jumpIfFalse,
         7: lessThan,
-        8: equals // CMP
+        8: equals, // CMP
+        9: relBase
       };
 
       const fn = optCodeMap[optCode] || badCode;
