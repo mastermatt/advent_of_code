@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const [aWireDirs, bWireDirs] = fs
-  .readFileSync(path.resolve(__dirname, "./input/day3.txt"))
+  .readFileSync(path.resolve(__dirname, "./input.txt"))
   .toString()
   .split("\n");
 

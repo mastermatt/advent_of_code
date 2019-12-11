@@ -3,7 +3,7 @@ const lodash = require("lodash");
 const path = require("path");
 
 const input = fs
-  .readFileSync(path.resolve(__dirname, "./input/day6.txt"))
+  .readFileSync(path.resolve(__dirname, "./input.txt"))
   .toString()
   .trim()
   .split("\n");

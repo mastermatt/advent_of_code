@@ -1,10 +1,10 @@
 const lodash = require("lodash");
 
-const readFile = require("../helpers/readFile");
-const permutations = require("../helpers/permutations");
-const { Computer } = require("./computer");
+const readFile = require("../../helpers/readFile");
+const permutations = require("../../helpers/permutations");
+const { Computer } = require("../computer");
 
-const input = readFile(__dirname, "./input/day7.txt")[0]
+const input = readFile(__dirname, "./input.txt")[0]
   .split(",")
   .map(Number);
 

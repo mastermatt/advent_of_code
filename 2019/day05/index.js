@@ -2,10 +2,10 @@ const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
 
-const computer = require("./computer");
+const computer = require("../computer");
 
 const input = fs
-  .readFileSync(path.resolve(__dirname, "./input/day5.txt"))
+  .readFileSync(path.resolve(__dirname, "./input.txt"))
   .toString()
   .trim()
   .split(",")

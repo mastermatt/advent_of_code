@@ -3,7 +3,7 @@ const lodash = require("lodash");
 const path = require("path");
 
 let input = fs
-  .readFileSync(path.resolve(__dirname, "./input/day1.txt"))
+  .readFileSync(path.resolve(__dirname, "./input/input.txt"))
   .toString()
   .split("\n")
   .map(Number);

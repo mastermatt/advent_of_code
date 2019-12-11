@@ -1,7 +1,7 @@
-const DefaultDict = require("../helpers/defaultdict");
-const readFile = require("../helpers/readFile");
+const DefaultDict = require("../../helpers/defaultdict");
+const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input/day10.txt");
+const input = readFile(__dirname, "./input.txt");
 
 // an array of [x,y] coordinates of all the asteroids
 const positions = [];

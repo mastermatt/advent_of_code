@@ -1,9 +1,9 @@
 const lodash = require("lodash");
 
-const DefaultDict = require("../helpers/defaultdict");
-const readFile = require("../helpers/readFile");
+const DefaultDict = require("../../helpers/defaultdict");
+const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input/day10.txt").map(line =>
+const input = readFile(__dirname, "./input.txt").map(line =>
   line.split("").map(c => c === "#")
 );
 

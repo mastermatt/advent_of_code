@@ -1,10 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 
-const computer = require("./computer");
+const computer = require("../computer");
 
 let input = fs
-  .readFileSync(path.resolve(__dirname, "./input/day2.txt"))
+  .readFileSync(path.resolve(__dirname, "./input.txt"))
   .toString()
   .split(",")
   .map(Number);

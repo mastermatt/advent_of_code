@@ -1,8 +1,8 @@
 const lodash = require("lodash");
 
-const readFile = require("../helpers/readFile");
+const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input/day8.txt")[0]
+const input = readFile(__dirname, "./input.txt")[0]
   .split("")
   .map(Number);
 

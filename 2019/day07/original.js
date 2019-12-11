@@ -1,9 +1,9 @@
 const lodash = require("lodash");
 
-const readFile = require("../helpers/readFile");
-const computer = require("./computer");
+const readFile = require("../../helpers/readFile");
+const computer = require("../computer");
 
-const input = readFile(__dirname, "./input/day7.txt")[0]
+const input = readFile(__dirname, "./input.txt")[0]
   .split(",")
   .map(Number);
 

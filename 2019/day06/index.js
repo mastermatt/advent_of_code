@@ -1,9 +1,9 @@
 const lodash = require("lodash");
 
-const DefaultDict = require("../helpers/defaultdict");
-const readFile = require("../helpers/readFile");
+const DefaultDict = require("../../helpers/defaultdict");
+const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input/day6.txt");
+const input = readFile(__dirname, "./input.txt");
 
 // Initial thoughts:
 // this was a shitty way to go, but my mind blanked on graph structures in the moment.
