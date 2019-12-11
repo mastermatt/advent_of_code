@@ -8,7 +8,9 @@ const input = readFile(__dirname, "./input.txt")[0]
 const comp = new Computer([...input]);
 let x = 0;
 let y = 0;
-let dir = 0;
+let fx = 0;
+let fy = -1;
+
 const grid = {
   "0:0": 1 // this val changes for part one vs two
 };
@@ -24,33 +26,22 @@ while (!comp.halted) {
 
   if (!positions[y]) {
     // ensure the 0th index is set otherwise it may not print right below
-    positions[y] = [false];
+    positions[y] = [0];
   }
-  positions[y][x] = !!newColor;
+  positions[y][x] = newColor;
 
-  const turnDir = comp.readNext();
-  dir += turnDir ? 1 : 3;
-  switch (dir % 4) {
-    case 0:
-      y--;
-      break;
-    case 1:
-      x++;
-      break;
-    case 2:
-      y++;
-      break;
-    case 3:
-      x--;
-      break;
-    default:
-      throw "unknown dir: " + dir;
-  }
+  // direction the robot should turn: 0 means it should turn left 90 degrees, and 1 means it should turn right 90 degrees.
+  const turn = comp.readNext();
+  [fx, fy] = turn ? [-fy, fx] : [fy, -fx];
+  x += fx;
+  y += fy;
 }
-// console.log(grid);
+// console.log(positions);
 const partOne = Object.keys(grid).length;
 console.log("part one", partOne); // 2088
 
-positions.forEach(line => {
-  console.log(line.map(x => (x ? "█" : " ")).join("")); // URCAFLCP
-});
+const partTwo = positions
+  .map(line => line.map(x => (x ? "█" : " ")).join(""))
+  .join("\n");
+console.log("part two:");
+console.log(partTwo); // URCAFLCP
