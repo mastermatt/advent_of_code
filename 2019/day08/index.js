@@ -26,5 +26,5 @@ layers.forEach(layer =>
 );
 
 lodash.chunk(finalImg, horizontal).forEach(line => {
-  console.log(line.map(p => (p === "0" ? " " : "■")).join("")); // HCGFE
+  console.log(line.map(p => (p === "0" ? " " : "█")).join("")); // HCGFE
 });
