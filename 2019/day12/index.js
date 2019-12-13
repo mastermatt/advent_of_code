@@ -3,6 +3,7 @@ const Iter = require("es-iter");
 const inspect = Symbol.for("nodejs.util.inspect.custom");
 
 const readFile = require("../../helpers/readFile");
+const { lcm } = require("../../helpers/math");
 
 const input = readFile(__dirname, "./input.txt");
 const dimensions = ["x", "y", "z"];
@@ -63,7 +64,7 @@ const stepTime = () => {
 };
 
 lodash.range(1000).forEach(stepTime);
-console.log(moons);
+// console.log(moons);
 
 const partOne = lodash.sumBy(moons, "totalEnergy");
 console.log("part one", partOne); // 13399
@@ -85,9 +86,6 @@ for (let i = 1; i < 1000000; i++) {
   }
 }
 
-const gcd = (a, b) => (b ? gcd(b, a % b) : a);
-const lcm = (a, b) => a * (b / gcd(a, b));
-
 // console.log(loopIndexes);
-const partTwo = loopIndexes.reduce(lcm);
+const partTwo = lcm(...loopIndexes);
 console.log("step two", partTwo); // 312992287193064

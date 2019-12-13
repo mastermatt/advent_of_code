@@ -9,8 +9,16 @@ class Computer {
     this.relativeBase = 0;
   }
 
+  get hasOutput() {
+    return !!this.outBuf.length;
+  }
+
   readNext() {
     return this.outBuf.shift();
+  }
+
+  readChunk(num) {
+    return this.outBuf.splice(0, num);
   }
 
   writeAndExec(...input) {
