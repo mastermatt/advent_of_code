@@ -70,7 +70,7 @@ console.log("step one", partOne); // 346961
 
 // this magic number came from about a minute of trial and error to find a quantity that would be
 // close, but still under the 1 trillion mark. Then I just let it walk up one FUEL at a time until it crossed the limit.
-produceFuel(4050000);
+produceFuel(4060000);
 // console.log(bank);
 
 while (bank.ORE.consumed < 1000000000000) {

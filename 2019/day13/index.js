@@ -29,12 +29,15 @@ for (let i = 2; i < comp.outBuf.length; i += 3) {
 console.log("step one", numBlocks); // 286
 
 const printScreen = screen => {
+  const reset = "\x1b[0m";
+  const blue = "\x1b[34m";
+  const red = "\x1b[31m";
   const pixelMap = {
     [TILE_EMPTY]: " ",
     [TILE_WALL]: "#",
-    [TILE_BLOCK]: "x",
+    [TILE_BLOCK]: red + "x" + reset,
     [TILE_PADDLE]: "-",
-    [TILE_BALL]: "*"
+    [TILE_BALL]: blue + "o" + reset
   };
 
   screen.forEach(line => {
