@@ -1,13 +1,19 @@
 {
   "name": "advent_of_code",
+  "description": "My results for the Advent of Code challenge",
   "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "url": "https://github.com/mastermatt/advent_of_code"
+  },
   "scripts": {
-    "current": "node $(find . -regex '\\./20../day.*\\.js' | sort -r | head -n 1)",
-    "lint": "prettier --write --list-different \"**/*.js\"",
-    "run": "node 2019/day9.js"
+    "lint": "prettier --write --list-different './**/*.{js,json,md}'",
+    "run": "node 2019/day14"
   },
   "dependencies": {
-    "lodash": "latest",
-    "prettier": "latest"
+    "es-iter": "^1.1.1",
+    "lodash": "^4.17.15",
+    "prettier": "^1.19.1"
   }
 }
