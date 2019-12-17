@@ -21,6 +21,12 @@ class Computer {
     return this.outBuf.splice(0, num);
   }
 
+  readLastChunk(num) {
+    const chunk = this.outBuf.slice(-num);
+    this.outBuf = [];
+    return chunk;
+  }
+
   writeAndExec(...input) {
     this.inBuf.push(...input);
     this.execute();
