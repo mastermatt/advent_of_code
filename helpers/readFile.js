@@ -10,7 +10,7 @@ const readFile = (...pathSegments) => {
   return fs
     .readFileSync(path.resolve(...pathSegments))
     .toString()
-    .trim()
+    .trimEnd()
     .split("\n");
 };
 

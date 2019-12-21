@@ -26,9 +26,7 @@ const grid = range.map(y => {
 
 console.log("partOne", partOne); // 197
 
-// grid.forEach(line => {
-//   console.log(line.join(""))
-// })
+grid.forEach(line => console.log(line.join("")));
 
 let x;
 let y = 1000;
