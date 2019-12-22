@@ -30,8 +30,8 @@ module.exports = class CoordinateSet extends Set {
       yield this.dekey(value).map(Number);
     }
   }
-  keys = this.values;
-  [Symbol.iterator] = this.values;
+  // keys = this.values;
+  // [Symbol.iterator] = this.values;
 
   key(coordinates) {
     return coordinates.join(",");

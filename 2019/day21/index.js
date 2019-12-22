@@ -7,18 +7,19 @@ const input = readFile(__dirname, "./input.txt")[0]
   .split(",")
   .map(Number);
 
+const NEW_LINE = 10;
+
 const run = springscript => {
-  const newlineCode = 10;
   const encoded = springscript
     .trim()
     .split("")
     .map(c => c.charCodeAt(0));
 
-  const comp = new Computer([...input], ...encoded, newlineCode);
+  const comp = new Computer([...input], ...encoded, NEW_LINE);
   comp.execute();
 
   const lastOutput = lodash.last(comp.outBuf);
-  if (lastOutput === newlineCode) {
+  if (lastOutput === NEW_LINE) {
     const map = comp.outBuf.map(c => String.fromCharCode(c)).join("");
     console.log(map);
     return null;
