@@ -42,19 +42,21 @@ const modInverse = (a, m) => {
 exports.modInverse = modInverse;
 
 // Fast modular exponentiation for a ^ b mod n
-// https://gist.github.com/krzkaczor/0bdba0ee9555659ae5fe#gistcomment-2944839
-const modExp = function(a, b, n) {
-  a = BigInt(a % n);
-  b = BigInt(b);
-  n = BigInt(n);
+// https://en.wikipedia.org/wiki/Modular_exponentiation
+// O(log(exponent))
+const modExp = function(base, exponent, modulus) {
+  base = BigInt(base % modulus);
+  exponent = BigInt(exponent);
+  modulus = BigInt(modulus);
   let result = 1n;
-  let x = BigInt(a);
-  while (b > 0) {
-    if (b % 2n === 1n) {
-      result = modMul(result, x, n);
+  while (exponent > 0) {
+    // noinspection JSBitwiseOperatorUsage
+    if (exponent & 1n) {
+      // least significant bit is set
+      result = modMul(result, base, modulus);
     }
-    b /= 2n;
-    x = modMul(x, x, n);
+    exponent >>= 1n;
+    base = modMul(base, base, modulus);
   }
   return result;
 };
