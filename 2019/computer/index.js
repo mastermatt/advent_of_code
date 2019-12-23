@@ -27,6 +27,10 @@ class Computer {
     return chunk;
   }
 
+  write(...input) {
+    this.inBuf.push(...input);
+  }
+
   writeAndExec(...input) {
     this.inBuf.push(...input);
     this.execute();
