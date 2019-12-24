@@ -1,11 +1,6 @@
-const fs = require("fs");
-const path = require("path");
+const readFile = require("../../helpers/readFile");
 
-const input = fs
-  .readFileSync(path.resolve(__dirname, "./input/day5.txt"))
-  .toString()
-  .trim()
-  .split("\n");
+const input = readFile(__dirname, "./input.txt");
 
 // It does not contain the strings ab, cd, pq, or xy, even if they are part of one of the other requirements.
 const blackList = /ab|cd|pq|xy/;

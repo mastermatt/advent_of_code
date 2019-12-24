@@ -1,6 +1,6 @@
-const readFile = require("../helpers/readFile");
+const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input/day7.txt");
+const input = readFile(__dirname, "./input.txt");
 
 // 123 -> x
 // 456 -> y

@@ -1,11 +1,6 @@
-const fs = require("fs");
-const path = require("path");
+const readFile = require("../../helpers/readFile");
 
-const input = fs
-  .readFileSync(path.resolve(__dirname, "./input/day3.txt"))
-  .toString()
-  .trim()
-  .split("");
+const input = readFile(__dirname, "./input.txt")[0].split("");
 
 const housesVisited = new Set(["0,0"]);
 let x = 0;

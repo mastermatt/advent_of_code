@@ -1,5 +1,4 @@
 const Iter = require("es-iter");
-const lodash = require("lodash");
 
 const PriorityQueue = require("../../helpers/priorityQueue");
 const CoordinateSet = require("../../helpers/coordinateSet");

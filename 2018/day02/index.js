@@ -1,11 +1,8 @@
-const fs = require("fs");
 const lodash = require("lodash");
-const path = require("path");
 
-const input = fs
-  .readFileSync(path.resolve(__dirname, "./input/day2.txt"))
-  .toString()
-  .split("\n");
+const readFile = require("../../helpers/readFile");
+
+const input = readFile(__dirname, "./input.txt")[0].split("");
 
 let hasTwo = 0;
 let hasThree = 0;

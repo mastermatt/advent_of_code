@@ -1,12 +1,8 @@
-const fs = require("fs");
-const path = require("path");
 const lodash = require("lodash");
 
-const input = fs
-  .readFileSync(path.resolve(__dirname, "./input/day6.txt"))
-  .toString()
-  .trim()
-  .split("\n");
+const readFile = require("../../helpers/readFile");
+
+const input = readFile(__dirname, "./input.txt");
 
 // turn on 212,957 through 490,987
 // toggle 171,31 through 688,88

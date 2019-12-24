@@ -1,18 +1,13 @@
-const fs = require("fs");
 const lodash = require("lodash");
-const path = require("path");
 
-const input = fs
-  .readFileSync(path.resolve(__dirname, "./input/day2.txt"))
-  .toString()
-  .trim()
-  .split("\n")
-  .map(dimensions =>
-    dimensions
-      .split("x")
-      .map(Number)
-      .sort((a, b) => a - b)
-  );
+const readFile = require("../../helpers/readFile");
+
+const input = readFile(__dirname, "./input.txt").map(dimensions =>
+  dimensions
+    .split("x")
+    .map(Number)
+    .sort((a, b) => a - b)
+);
 
 const partOne = input.reduce((acc, d) => {
   const areas = [d[0] * d[1], d[0] * d[2], d[1] * d[2]];

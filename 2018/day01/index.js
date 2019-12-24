@@ -1,10 +1,6 @@
-const fs = require("fs");
-const path = require("path");
+const readFile = require("../../helpers/readFile");
 
-const input = fs
-  .readFileSync(path.resolve(__dirname, "./input/day1.txt"))
-  .toString()
-  .split("\n");
+const input = readFile(__dirname, "./input.txt")[0].split("");
 
 const freq = input.reduce((acc, newFreq) => {
   acc += parseInt(newFreq);
