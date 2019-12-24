@@ -9,7 +9,7 @@
   },
   "scripts": {
     "lint": "prettier --write --list-different './**/*.{js,json,md}'",
-    "run": "node 2019/day23"
+    "run": "node 2015/day08"
   },
   "dependencies": {
     "es-iter": "^1.1.1",
