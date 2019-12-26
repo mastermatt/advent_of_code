@@ -27,19 +27,8 @@ class Computer {
     return chunk;
   }
 
-  readASCII() {
-    return this.outBuf
-      .splice(0)
-      .map(c => String.fromCharCode(c))
-      .join("");
-  }
-
   write(...input) {
     this.inBuf.push(...input);
-  }
-
-  writeASCII(inputStr) {
-    this.inBuf.push(...inputStr.split("").map(c => c.charCodeAt(0)));
   }
 
   writeAndExec(...input) {
