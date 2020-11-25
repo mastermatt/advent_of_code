@@ -1,9 +1,8 @@
 const lodash = require("lodash");
-const DefaultDict = require("../../helpers/defaultdict");
 
-const tape = new DefaultDict(0);
+const tape = [];
 let state = "A";
-let cursor = 0;
+let cursor = 7000; // arbitrarily large number to allow going negative a bunch while staying in the tapes numeric indexes
 let steps = 12_425_180;
 
 const states = {
@@ -34,7 +33,7 @@ const states = {
 };
 
 function step() {
-  const currVal = tape[cursor];
+  const currVal = tape[cursor] || 0;
   const [write, move, newState] = states[state][currVal];
   tape[cursor] = write;
   cursor += move;
