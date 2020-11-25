@@ -1,0 +1,103 @@
+set b 93
+set c b
+jnz a 2         // JMP 1
+jnz 1 5         // JMP 2
+mul b 100
+sub b -100000
+set c b
+sub c -17000
+set f 1         // GOTO 9
+set d 2
+set e 2         // GOTO 5
+set g d         // GOTO 4
+mul g e
+sub g b
+jnz g 2         // JMP 3
+set f 0
+sub e -1        // GOTO 3
+set g e
+sub g b
+jnz g -8        // JMP 4
+sub d -1
+set g d
+sub g b
+jnz g -13   // if d != b, jump back to set e = 2          JMP 5
+jnz f 2     // if NOT f, inc h                            JMP 6
+sub h -1    // only time h is updated, simple inc
+set g b     // if b === c, we exit                        GOTO 6
+sub g c
+jnz g 2         // JMP 7
+jnz 1 3         // JMP 8 HLT
+sub b -17       // GOTO 7
+jnz 1 -23       // JMP 9
+
+if b = c on the sixth to last inst, then it exits.
+otherwise b += 17 and we go back to setting f = 1.
+
+
+a is never updated, always 1
+b is set to 109300 early on, then inc by 17 at the very end of the main loop
+c is set to 126300 early on then never updated
+
+b = 109300
+c = 126300
+h = 0
+
+// direct translation
+while(true) {
+  f = 1
+  d = 2
+
+  do {
+    e = 2
+
+    do {
+      if (d * e - b === 0) {
+        f = 0
+      }
+      e++
+    } while (e - b)
+
+    d++
+  } while(d - b)
+
+  if(f===0) h++
+  if(b===c) break
+  b += 17
+}
+
+// refactor
+while(b <= c) { // 1000 iterations
+  f = true // flag denoting if b is prime
+  d = 2
+
+  while(d < b) {
+    e = 2
+
+    while(e < b) {
+      if (d * e === b) {
+        f = false
+      }
+      e++
+    }
+
+    d++
+  }
+
+  if(!f) h++
+  b += 17
+}
+
+h = the number of primes between b and c?
+The += 17 throws me.
+
+h = how many of the 1000 numbers between b and c are NOT prime?
+in steps of 17
+
+b = 109300
+c = 126300
+h = 0
+
+for(let b = 109300; b <= 126300; b += 17) {
+ if(!isPrime(b)) ++h
+}

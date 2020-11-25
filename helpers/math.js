@@ -61,3 +61,12 @@ const modExp = function(base, exponent, modulus) {
   return result;
 };
 exports.modExp = modExp;
+
+// https://stackoverflow.com/a/40200710/823942
+const isPrime = num => {
+  for (let i = 2, s = Math.sqrt(num); i <= s; ++i) {
+    if (num % i === 0) return false;
+  }
+  return num > 1;
+};
+exports.isPrime = isPrime;

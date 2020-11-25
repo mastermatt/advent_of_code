@@ -3,13 +3,13 @@ const readFile = require("../../helpers/readFile");
 
 const input = readFile(__dirname, "./input.txt");
 
-//   \ n  /
-// nw +--+ ne
-//   /    \
-// -+      +-
-//   \    /
-// sw +--+ se
-//   / s  \
+//   \  n  /
+// nw +---+ ne
+//   /     \
+// -+       +-
+//   \     /
+// sw +---+ se
+//   /  s  \
 
 const steps = input[0].split(",");
 console.log(lodash.countBy(steps));
