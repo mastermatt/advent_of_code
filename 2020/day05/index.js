@@ -3,7 +3,7 @@ const readFile = require("../../helpers/readFile");
 
 const input = readFile(__dirname, "./input.txt");
 
-const reduce = (str, max) => {
+const search = (str, max) => {
   let min = 0;
   for (const char of str) {
     const mid = (min + (max - min) / 2) | 0;
@@ -13,10 +13,15 @@ const reduce = (str, max) => {
 };
 
 const seatIds = input.map(line => {
-  const row = reduce(line.slice(0, 7), 127);
-  const col = reduce(line.slice(7), 7);
+  const row = search(line.slice(0, 7), 127);
+  const col = search(line.slice(7), 7);
   return row * 8 + col;
 });
+
+// turns out, the input can be converted directly to binary. in retrospect, of course!
+// const seatIds = input
+//   .map(line => line.replace(/[F|L]/g, 0).replace(/[B|R]/g, 1))
+//   .map(bin => parseInt(bin, 2));
 
 const partOne = lodash.max(seatIds);
 console.log("part one", partOne); // 813
