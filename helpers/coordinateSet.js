@@ -1,4 +1,9 @@
 module.exports = class CoordinateSet extends Set {
+  constructor(entries) {
+    super();
+    (entries || []).forEach(entry => this.add(...entry));
+  }
+
   add(...coordinates) {
     return super.add(this.key(coordinates));
   }
@@ -11,10 +16,10 @@ module.exports = class CoordinateSet extends Set {
     return super.delete(this.key(coordinates));
   }
 
-  forEach(callbackfn, thisArg) {
+  forEach(callback, thisArg) {
     super.forEach(value => {
       const coordinates = this.dekey(value);
-      callbackfn.call(thisArg, coordinates, coordinates, this);
+      callback.call(thisArg, coordinates, coordinates, this);
     });
   }
 
@@ -30,8 +35,14 @@ module.exports = class CoordinateSet extends Set {
       yield this.dekey(value).map(Number);
     }
   }
-  // keys = this.values;
-  // [Symbol.iterator] = this.values;
+
+  keys() {
+    return this.values();
+  }
+
+  [Symbol.iterator]() {
+    return this.values();
+  }
 
   key(coordinates) {
     return coordinates.join(",");
