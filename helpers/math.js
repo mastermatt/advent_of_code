@@ -70,3 +70,18 @@ const isPrime = num => {
   return num > 1;
 };
 exports.isPrime = isPrime;
+
+const factors = num => {
+  const res = [1];
+  const back = [num];
+  const root = Math.sqrt(num);
+  for (let i = 2; i <= root; ++i) {
+    if (num % i === 0) {
+      res.push(i);
+      back.push(num / i);
+    }
+  }
+  res.push(...back.reverse());
+  return res;
+};
+exports.factors = factors;
