@@ -4,7 +4,7 @@ const { manhattanDistance, orthogonalDeltas } = require("../../helpers/gird");
 const input = readFile(__dirname, "./input.txt");
 
 const dirs = "NESW";
-const instructions = input.map(line => [line[0], parseInt(line.slice(1))]);
+const instructions = input.map((line) => [line[0], parseInt(line.slice(1))]);
 
 function step(x, y, dir, action, amount) {
   const dirIdx = dirs.indexOf(dir);

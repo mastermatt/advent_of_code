@@ -3,14 +3,12 @@ const lodash = require("lodash");
 const readFile = require("../../helpers/readFile");
 const { Computer } = require("../computer");
 
-const input = readFile(__dirname, "./input.txt")[0]
-  .split(",")
-  .map(Number);
+const input = readFile(__dirname, "./input.txt")[0].split(",").map(Number);
 
 const comp = new Computer([...input]);
 comp.execute();
 
-const map = comp.outBuf.map(c => String.fromCharCode(c)).join("");
+const map = comp.outBuf.map((c) => String.fromCharCode(c)).join("");
 // console.log(comp.outBuf.map(c => String.fromCharCode(c)))
 // process.stdout.write(map + "\n");
 // console.log(map);
@@ -24,8 +22,8 @@ lines.forEach((line, lineIdx) => {
       lines[lineIdx][charIdx - 1],
       lines[lineIdx][charIdx],
       lines[lineIdx][charIdx + 1],
-      (lines[lineIdx + 1] || [])[charIdx]
-    ].every(c => c === "#");
+      (lines[lineIdx + 1] || [])[charIdx],
+    ].every((c) => c === "#");
 
     if (intersection) {
       t += lineIdx * charIdx;
@@ -46,7 +44,7 @@ R,8,R,10,L,6
 n
 `;
 
-const yyy = xxx.split("").map(c => c.charCodeAt(0));
+const yyy = xxx.split("").map((c) => c.charCodeAt(0));
 // console.log(yyy);
 comp2.writeAndExec(...yyy);
 // console.log(comp2.outBuf);

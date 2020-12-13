@@ -7,7 +7,7 @@ const input = readFile(__dirname, "./input.txt")[0].split("");
 let hasTwo = 0;
 let hasThree = 0;
 
-input.forEach(line => {
+input.forEach((line) => {
   const map = [...line].reduce((a, e) => {
     a[e] = a[e] ? a[e] + 1 : 1;
     return a;
@@ -43,7 +43,7 @@ const close = (a, b) => {
 const stack = [];
 
 for (const line of input) {
-  stack.find(a => {
+  stack.find((a) => {
     const match = close(a, line);
     if (match) {
       console.log("part two", match);

@@ -6,7 +6,7 @@ const DefaultDict = require("../../helpers/defaultdict");
 const readFile = require("../../helpers/readFile");
 
 console.time();
-const input = readFile(__dirname, "./input.txt").map(line => line.split(""));
+const input = readFile(__dirname, "./input.txt").map((line) => line.split(""));
 // const input = readFile(__dirname, "./sample2.txt").map(line => line.split(""));
 
 const ENTRANCE = "@";
@@ -19,7 +19,7 @@ const dirDeltas = [
   [0, 1],
   [1, 0],
   [0, -1],
-  [-1, 0]
+  [-1, 0],
 ];
 
 const shortestPath = ({ x: x1, y: y1 }, { x: x2, y: y2 }) => {
@@ -31,10 +31,7 @@ const shortestPath = ({ x: x1, y: y1 }, { x: x2, y: y2 }) => {
 
     if (x === x2 && y === y2) {
       // lowercase here to make things easier later
-      const doorList = doors
-        .sort()
-        .join("")
-        .toLowerCase();
+      const doorList = doors.sort().join("").toLowerCase();
       return [dist, doorList];
     }
 
@@ -78,7 +75,7 @@ input.forEach((line, yIdx) => {
 const allKeys = Object.keys(keyCoordinates);
 const keyGraph = new DefaultDict(Array);
 
-allKeys.forEach(key => {
+allKeys.forEach((key) => {
   const [distance, doors] = shortestPath(
     entranceCoordinates,
     keyCoordinates[key]

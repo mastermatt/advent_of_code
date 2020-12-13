@@ -5,7 +5,7 @@ const input = readFile(__dirname, "./input.txt");
 // const input = readFile(__dirname, "./sample.txt");
 
 function printGrid(grid) {
-  grid.forEach(row => console.log(row.join("")));
+  grid.forEach((row) => console.log(row.join("")));
 }
 
 // If a seat is empty (L) and there are no occupied seats adjacent to it, the seat becomes occupied.
@@ -34,7 +34,7 @@ function step(grid) {
 }
 
 function countOcc(grid) {
-  return grid.flat().filter(char => char === "#").length;
+  return grid.flat().filter((char) => char === "#").length;
 }
 
 let grid = input;

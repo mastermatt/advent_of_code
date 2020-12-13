@@ -12,9 +12,9 @@ const vowels = /[^aeiou]/g;
 const pairs = /(.)\1/;
 
 const nice = input
-  .filter(str => pairs.test(str))
-  .filter(str => !blackList.test(str))
-  .filter(str => str.replace(vowels, "").length >= 3);
+  .filter((str) => pairs.test(str))
+  .filter((str) => !blackList.test(str))
+  .filter((str) => str.replace(vowels, "").length >= 3);
 
 console.log("part one", nice.length); // 255
 
@@ -27,7 +27,7 @@ const pairTwins = /(..).*\1/;
 const gapedPair = /(.).\1/;
 
 const niceTwo = input
-  .filter(str => pairTwins.test(str))
-  .filter(str => gapedPair.test(str));
+  .filter((str) => pairTwins.test(str))
+  .filter((str) => gapedPair.test(str));
 
 console.log("part two", niceTwo.length); // 55

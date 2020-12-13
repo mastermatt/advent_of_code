@@ -16,7 +16,7 @@ const readFile = require("../../helpers/readFile");
 
 const input = readFile(__dirname, "./input.txt");
 
-const diffs = input.map(row => {
+const diffs = input.map((row) => {
   const nums = row.split("\t");
   return Math.max(...nums) - Math.min(...nums);
 });
@@ -29,8 +29,8 @@ console.log("part one", partOne); // 34581
  *  that is, where the result of the division operation is a whole number. They would like you
  *  to find those numbers on each line, divide them, and add up each line's result.
  */
-const diffs2 = input.map(row => {
-  const nums = row.split("\t").map(x => parseInt(x));
+const diffs2 = input.map((row) => {
+  const nums = row.split("\t").map((x) => parseInt(x));
   for (let i = 0; i < nums.length; i++) {
     for (let j = 0; j < nums.length; j++) {
       if (i === j) continue;

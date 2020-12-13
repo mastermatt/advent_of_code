@@ -22,7 +22,7 @@ class Moon {
   }
 
   step() {
-    dimensions.forEach(d => (this.pos[d] += this.vel[d]));
+    dimensions.forEach((d) => (this.pos[d] += this.vel[d]));
   }
 
   isDimensionInitial(d) {
@@ -30,11 +30,11 @@ class Moon {
   }
 
   get potentialEnergy() {
-    return lodash.sum(dimensions.map(d => Math.abs(this.pos[d])));
+    return lodash.sum(dimensions.map((d) => Math.abs(this.pos[d])));
   }
 
   get kineticEnergy() {
-    return lodash.sum(dimensions.map(d => Math.abs(this.vel[d])));
+    return lodash.sum(dimensions.map((d) => Math.abs(this.vel[d])));
   }
 
   get totalEnergy() {
@@ -46,21 +46,21 @@ class Moon {
   }
 }
 
-const moons = input.map(line => new Moon(line));
+const moons = input.map((line) => new Moon(line));
 const combinations = new Iter(moons).combinations(2).toArray();
 
 const stepTime = () => {
   combinations.forEach(([a, b]) => {
     dimensions
-      .filter(d => a.pos[d] !== b.pos[d])
-      .forEach(d => {
+      .filter((d) => a.pos[d] !== b.pos[d])
+      .forEach((d) => {
         const [ad, bd] = a.pos[d] > b.pos[d] ? [-1, 1] : [1, -1];
         a.vel[d] += ad;
         b.vel[d] += bd;
       });
   });
 
-  moons.forEach(moon => moon.step());
+  moons.forEach((moon) => moon.step());
 };
 
 lodash.range(1000).forEach(stepTime);
@@ -69,14 +69,17 @@ lodash.range(1000).forEach(stepTime);
 const partOne = lodash.sumBy(moons, "totalEnergy");
 console.log("part one", partOne); // 13399
 
-moons.forEach(moon => moon.reset());
+moons.forEach((moon) => moon.reset());
 const loopIndexes = [];
 
 for (let i = 1; i < 1000000; i++) {
   stepTime();
 
   dimensions.forEach((d, idx) => {
-    if (!loopIndexes[idx] && moons.every(moon => moon.isDimensionInitial(d))) {
+    if (
+      !loopIndexes[idx] &&
+      moons.every((moon) => moon.isDimensionInitial(d))
+    ) {
       loopIndexes[idx] = i;
     }
   });

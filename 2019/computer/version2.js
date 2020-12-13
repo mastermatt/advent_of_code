@@ -9,7 +9,7 @@ exports.execute = (memory, input = []) => {
     // console.log(memory, optCode)
     // console.log(optCode, modes);
 
-    const read = pos => {
+    const read = (pos) => {
       const mode = modes.pop() || "0";
       if (mode === "0") {
         return memory[memory[pos]];

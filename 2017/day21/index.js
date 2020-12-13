@@ -5,8 +5,8 @@ const readFile = require("../../helpers/readFile");
 const input = readFile(__dirname, "./input.txt");
 const startPattern = ".#./..#/###";
 
-const split = str => str.split("/").map(i => i.split(""));
-const unsplit = matrix => matrix.map(i => i.join("")).join("/");
+const split = (str) => str.split("/").map((i) => i.split(""));
+const unsplit = (matrix) => matrix.map((i) => i.join("")).join("/");
 
 // given a 2D matrix (nested arrays) yield the eight symmetries (initial, rotation and reflection)
 // initial > trans > rot 90, flipped Y > reverse > rot 180 > trans > flipped Y > reverse > rot 180 > trans > rot 90, flipped X > reverse > rot 90 > trans > flipped X
@@ -34,7 +34,7 @@ function* genSymRules(from, to) {
 
 const rules = Object.fromEntries(
   input
-    .map(line => line.split(" => "))
+    .map((line) => line.split(" => "))
     .map(([from, to]) => [...genSymRules(from, to)])
     .flat()
 );
@@ -49,7 +49,7 @@ function enhance(grid) {
   for (const [subIdxX, subIdxY] of generateCoords(newSubCnt, newSubCnt)) {
     const ogSub = lodash
       .range(subSize)
-      .map(idx =>
+      .map((idx) =>
         grid[subSize * subIdxY + idx].slice(
           subSize * subIdxX,
           subSize * subIdxX + subSize
@@ -67,7 +67,7 @@ function enhance(grid) {
 function countOnsAfterInters(num) {
   const result = lodash
     .range(num)
-    .reduce(grid => enhance(grid), split(startPattern));
+    .reduce((grid) => enhance(grid), split(startPattern));
   return lodash.countBy(unsplit(result))["#"];
 }
 

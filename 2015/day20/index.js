@@ -17,7 +17,7 @@ console.log("part one", partOne); // 831600
 
 i = 500000;
 while (++i) {
-  const f = factors(i).filter(n => i / n <= 50);
+  const f = factors(i).filter((n) => i / n <= 50);
   const s = lodash.sum(f) * 11;
   if (s >= input) {
     break;

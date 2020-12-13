@@ -18,7 +18,7 @@ const dirDeltas = [
   [0, 1],
   [1, 0],
   [0, -1],
-  [-1, 0]
+  [-1, 0],
 ];
 
 const shortestPath = (map, { x: x1, y: y1 }, { x: x2, y: y2 }) => {
@@ -30,10 +30,7 @@ const shortestPath = (map, { x: x1, y: y1 }, { x: x2, y: y2 }) => {
 
     if (x === x2 && y === y2) {
       // lowercase here to make things easier later
-      const doorList = doors
-        .sort()
-        .join("")
-        .toLowerCase();
+      const doorList = doors.sort().join("").toLowerCase();
       return [dist, doorList];
     }
 
@@ -59,7 +56,7 @@ const shortestPath = (map, { x: x1, y: y1 }, { x: x2, y: y2 }) => {
   return [null, null];
 };
 
-const getCoordinates = map => {
+const getCoordinates = (map) => {
   const keys = {};
   const entrances = [];
 
@@ -82,7 +79,7 @@ const buildGraph = (map, keyCoordinates, entranceCoords) => {
   const graph = new DefaultDict(Array);
 
   entranceCoords.forEach((coords, idx) => {
-    allKeys.forEach(key => {
+    allKeys.forEach((key) => {
       const [distance, doors] = shortestPath(map, coords, keyCoordinates[key]);
       if (distance) {
         graph[`entrance:${idx}`].push({ key, distance, doors });
@@ -114,7 +111,7 @@ const buildGraph = (map, keyCoordinates, entranceCoords) => {
  */
 const hashState = (robots, collectedKeys) => {
   const keys = new Set(collectedKeys);
-  robots.forEach(robot => keys.add(robot));
+  robots.forEach((robot) => keys.add(robot));
   const uniqueSorted = [...keys].sort().join("");
   return `${robots.join("")}:${uniqueSorted}`;
 };
@@ -135,7 +132,7 @@ const canOpenDoors = (keys, doors) => {
 };
 
 const dijkstra = (graph, numEntrances, numKeys) => {
-  const startingRobots = lodash.range(numEntrances).map(i => `entrance:${i}`);
+  const startingRobots = lodash.range(numEntrances).map((i) => `entrance:${i}`);
   const queue = new PriorityQueue((a, b) => a[1] < b[1]);
   const distances = new DefaultDict(Infinity);
   const seen = new Set();
@@ -155,7 +152,7 @@ const dijkstra = (graph, numEntrances, numKeys) => {
 
     const adjacent = robots
       .map((robot, robotIdx) => {
-        return graph[robot].map(xxx => {
+        return graph[robot].map((xxx) => {
           const newRobots = [...robots];
           newRobots[robotIdx] = xxx.key;
           return [newRobots, xxx];
@@ -183,8 +180,8 @@ const dijkstra = (graph, numEntrances, numKeys) => {
   }
 };
 
-const run = inputPath => {
-  const map = readFile(__dirname, inputPath).map(line => line.split(""));
+const run = (inputPath) => {
+  const map = readFile(__dirname, inputPath).map((line) => line.split(""));
   const [keyCoords, entranceCoords] = getCoordinates(map);
   const numKeys = Object.keys(keyCoords).length;
   const graph = buildGraph(map, keyCoords, entranceCoords);

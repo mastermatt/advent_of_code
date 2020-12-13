@@ -2,7 +2,7 @@ const Iter = require("es-iter");
 const lodash = require("lodash");
 const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input.txt").map(line => parseInt(line));
+const input = readFile(__dirname, "./input.txt").map((line) => parseInt(line));
 const target = 150;
 // const input = [20, 15, 10, 5, 5];
 // const target = 25;
@@ -14,7 +14,7 @@ let possibleMinCnt = 0;
 for (let i = 2; i <= input.length; i++) {
   const iter = new Iter(input)
     .combinations(i)
-    .filter(arr => lodash.sum(arr) === target);
+    .filter((arr) => lodash.sum(arr) === target);
 
   for (const arr of iter) {
     ++possibleCnt;

@@ -16,10 +16,12 @@ const input = readFile(__dirname, "./input.txt");
 // by having an off-by-one bug for all direct orbits expect for the one value that orbits the root (COM).
 // Refactoring the orbit map into two objects that track relationships and walk counts separately
 // allowed for a lot of simplifying everywhere else.
-const orbits = Object.fromEntries(input.map(line => line.split(")").reverse()));
+const orbits = Object.fromEntries(
+  input.map((line) => line.split(")").reverse())
+);
 const counts = new DefaultDict(0);
 
-const incr = orbiting => {
+const incr = (orbiting) => {
   while (orbiting !== "COM") {
     orbiting = orbits[orbiting];
     counts[orbiting]++;
@@ -40,7 +42,7 @@ COM - B - C - D - E - F
                \
                 I - SAN
  */
-const getPath = orbiting => {
+const getPath = (orbiting) => {
   const res = [];
   while (orbiting !== "COM") {
     orbiting = orbits[orbiting];

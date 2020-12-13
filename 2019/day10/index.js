@@ -37,7 +37,7 @@ const getVisibleAsteroids = (x1, y1) => {
 // it's not worth it for our input size. Do O(n^2) loops to see how many asteroids each asteroid can see.
 const counts = positions
   .map(([x, y]) => getVisibleAsteroids(x, y))
-  .map(visibles => Object.keys(visibles).length);
+  .map((visibles) => Object.keys(visibles).length);
 
 const partOne = Math.max(...counts);
 console.log("part one", partOne); // 292
@@ -58,7 +58,7 @@ positions
 
 // sort the asteroids along the same angles from closest to farthest (<- @orez- 😀)
 const dist = (x, y) => Math.sqrt((stationX - x) ** 2 + (stationY - y) ** 2);
-Object.values(visibleToStation).forEach(coordinates =>
+Object.values(visibleToStation).forEach((coordinates) =>
   coordinates.sort((a, b) => dist(...a) - dist(...b))
 );
 
@@ -68,7 +68,7 @@ while (Object.keys(visibleToStation).length) {
   const sortedAngles = Object.keys(visibleToStation).sort((a, b) => a - b);
 
   // dequeue the closed asteroid from each angle, remove the angle if its array is depleted
-  sortedAngles.forEach(angle => {
+  sortedAngles.forEach((angle) => {
     vaporizedCoordinates.push(visibleToStation[angle].shift());
     if (!visibleToStation[angle].length) {
       delete visibleToStation[angle];

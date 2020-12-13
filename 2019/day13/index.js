@@ -1,9 +1,7 @@
 const readFile = require("../../helpers/readFile");
 const { Computer } = require("../computer");
 
-const input = readFile(__dirname, "./input.txt")[0]
-  .split(",")
-  .map(Number);
+const input = readFile(__dirname, "./input.txt")[0].split(",").map(Number);
 
 // 0 is an empty tile. No game object appears in this tile.
 // 1 is a wall tile. Walls are indestructible barriers.
@@ -28,7 +26,7 @@ for (let i = 2; i < comp.outBuf.length; i += 3) {
 
 console.log("step one", numBlocks); // 286
 
-const printScreen = screen => {
+const printScreen = (screen) => {
   const reset = "\x1b[0m";
   const blue = "\x1b[34m";
   const red = "\x1b[31m";
@@ -37,11 +35,11 @@ const printScreen = screen => {
     [TILE_WALL]: "#",
     [TILE_BLOCK]: red + "x" + reset,
     [TILE_PADDLE]: "-",
-    [TILE_BALL]: blue + "o" + reset
+    [TILE_BALL]: blue + "o" + reset,
   };
 
-  screen.forEach(line => {
-    const pixels = line.map(c => pixelMap[c]);
+  screen.forEach((line) => {
+    const pixels = line.map((c) => pixelMap[c]);
     console.log(pixels.join(""));
   });
 };

@@ -11,14 +11,14 @@ const positions = [];
 const velocities = [];
 const accelerations = [];
 
-input.forEach(line => {
+input.forEach((line) => {
   const match = line.match(reInput);
   positions.push([parseInt(match[1]), parseInt(match[2]), parseInt(match[3])]);
   velocities.push([parseInt(match[4]), parseInt(match[5]), parseInt(match[6])]);
   accelerations.push([
     parseInt(match[7]),
     parseInt(match[8]),
-    parseInt(match[9])
+    parseInt(match[9]),
   ]);
 });
 
@@ -50,7 +50,7 @@ function removeCollisions() {
   }
 
   const indexes = Object.values(map)
-    .filter(list => list.length > 1)
+    .filter((list) => list.length > 1)
     .flat()
     // sort so we can splice from the array in a way that wont waste our time :(
     .sort((a, b) => b - a);

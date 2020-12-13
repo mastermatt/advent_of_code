@@ -1,7 +1,7 @@
 module.exports = class CoordinateMap extends Map {
   constructor(entries = []) {
     super();
-    entries.forEach(entry => this.set(...entry));
+    entries.forEach((entry) => this.set(...entry));
   }
   set(...args) {
     const value = args.pop();

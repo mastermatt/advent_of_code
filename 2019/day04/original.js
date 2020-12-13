@@ -2,7 +2,7 @@ const lodash = require("lodash");
 const start = 236491;
 const end = 713787;
 
-const hasRepeats = str => {
+const hasRepeats = (str) => {
   for (let i = 1; i < 6; i++) {
     if (str[i] === str[i - 1]) {
       return true;
@@ -13,7 +13,7 @@ const hasRepeats = str => {
 
 // this looks for sequential values, but because ascending values was the
 // other criteria, this could have been simpler.
-const hasDoubles = str => {
+const hasDoubles = (str) => {
   const x = [[str[0]]];
 
   for (let i = 1; i < 6; i++) {
@@ -24,14 +24,10 @@ const hasDoubles = str => {
   }
   // console.log(str, x, x.map(y => y.length))
 
-  return x.map(y => y.length).some(l => l === 2);
+  return x.map((y) => y.length).some((l) => l === 2);
 };
 
-const ascending = str =>
-  str
-    .split("")
-    .sort()
-    .join("") === str;
+const ascending = (str) => str.split("").sort().join("") === str;
 
 console.log("### test 112233", hasDoubles("112233"));
 console.log("### test 123444", hasDoubles("123444"));

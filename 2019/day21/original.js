@@ -1,9 +1,7 @@
 const readFile = require("../../helpers/readFile");
 const { Computer } = require("../computer");
 
-const input = readFile(__dirname, "./input.txt")[0]
-  .split(",")
-  .map(Number);
+const input = readFile(__dirname, "./input.txt")[0].split(",").map(Number);
 
 const comp = new Computer([...input]);
 
@@ -26,10 +24,10 @@ WALK
 const encoded = x
   .trimStart()
   .split("")
-  .map(c => c.charCodeAt(0));
+  .map((c) => c.charCodeAt(0));
 comp.writeAndExec(...encoded);
 
-const map = comp.outBuf.map(c => String.fromCharCode(c)).join("");
+const map = comp.outBuf.map((c) => String.fromCharCode(c)).join("");
 console.log(map);
 
 const partOne = comp.readLastChunk(1)[0];
@@ -63,10 +61,10 @@ const comp2 = new Computer([...input]);
 const encoded2 = xx
   .trimStart()
   .split("")
-  .map(c => c.charCodeAt(0));
+  .map((c) => c.charCodeAt(0));
 comp2.writeAndExec(...encoded2);
 
-const map2 = comp2.outBuf.map(c => String.fromCharCode(c)).join("");
+const map2 = comp2.outBuf.map((c) => String.fromCharCode(c)).join("");
 console.log(map2);
 
 const partTwo = comp2.readLastChunk(1)[0];

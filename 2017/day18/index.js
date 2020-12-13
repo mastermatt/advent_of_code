@@ -12,17 +12,17 @@ function toInt(val) {
 }
 
 const instructions = {
-  snd: x => (lastFrequency = toInt(x)),
+  snd: (x) => (lastFrequency = toInt(x)),
   set: (x, y) => (registers[x] = toInt(y)),
   add: (x, y) => (registers[x] += toInt(y)),
   mul: (x, y) => (registers[x] *= toInt(y)),
   mod: (x, y) => (registers[x] %= toInt(y)),
-  rcv: x => (toInt(x) !== 0 ? lastFrequency : 0),
+  rcv: (x) => (toInt(x) !== 0 ? lastFrequency : 0),
   jgz: (x, y) => {
     if (toInt(x) > 0) {
       instIdx += toInt(y) - 1;
     }
-  }
+  },
 };
 
 while (true) {

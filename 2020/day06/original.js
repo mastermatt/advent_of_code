@@ -5,7 +5,7 @@ const input = readFile(__dirname, "./input.txt").join("\n");
 
 const groups = input.split("\n\n");
 
-const x = groups.map(group => {
+const x = groups.map((group) => {
   const a = lodash.countBy([...group]);
   delete a["\n"];
   // console.log(a)
@@ -15,12 +15,12 @@ const x = groups.map(group => {
 const partOne = lodash.sum(x);
 console.log("part one", partOne); // 6596
 
-const y = groups.map(group => {
+const y = groups.map((group) => {
   const a = lodash.countBy([...group]);
   const num = (a["\n"] || 0) + 1;
   delete a["\n"];
 
-  const b = Object.values(a).filter(c => c === num).length;
+  const b = Object.values(a).filter((c) => c === num).length;
   // console.log(a, num, b)
   return b;
 });

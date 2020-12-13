@@ -14,7 +14,7 @@ const input = readFile(__dirname, "./input.txt");
 // ]
 
 const map = Object.fromEntries(
-  input.map(line => [line, line.split("/").map(digits => parseInt(digits))])
+  input.map((line) => [line, line.split("/").map((digits) => parseInt(digits))])
 );
 
 function* possibleComponents(port, seen) {
@@ -39,7 +39,7 @@ while (stack.length) {
     const node = {
       port: ports[0] === port ? ports[1] : ports[0], // it's possible both ports are the same
       strength: strength + ports[0] + ports[1],
-      seen: [...seen, comp]
+      seen: [...seen, comp],
     };
 
     // console.log(node)

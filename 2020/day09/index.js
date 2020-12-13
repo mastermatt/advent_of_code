@@ -2,7 +2,7 @@ const lodash = require("lodash");
 const Iter = require("es-iter");
 const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input.txt").map(line => parseInt(line));
+const input = readFile(__dirname, "./input.txt").map((line) => parseInt(line));
 const preambleSize = 25;
 // const input = readFile(__dirname, "./sample.txt").map(line => parseInt(line));
 // const preambleSize = 5;

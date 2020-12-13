@@ -32,10 +32,10 @@ const nextChar = {
   w: "x",
   x: "y",
   y: "z",
-  z: "a"
+  z: "a",
 };
 
-const nextPassword = current => {
+const nextPassword = (current) => {
   const result = current.split("");
 
   let i = current.length - 1;
@@ -50,7 +50,7 @@ const nextPassword = current => {
   return result.join("");
 };
 
-const isValid = str => doublePairRe.test(str) && tripleSeqRe.test(str);
+const isValid = (str) => doublePairRe.test(str) && tripleSeqRe.test(str);
 
 let password = originalPassword;
 do {

@@ -1,7 +1,7 @@
 const lodash = require("lodash");
 const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input.txt").map(line => {
+const input = readFile(__dirname, "./input.txt").map((line) => {
   const [inst, arg] = line.split(" ");
   return [inst, parseInt(arg)];
 });
@@ -12,9 +12,9 @@ function run(tape) {
   const seen = new Set();
 
   const instructions = {
-    acc: arg => (acc += arg),
-    jmp: arg => (pointer += arg - 1),
-    nop: () => {}
+    acc: (arg) => (acc += arg),
+    jmp: (arg) => (pointer += arg - 1),
+    nop: () => {},
   };
 
   while (true) {

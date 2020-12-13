@@ -20,7 +20,7 @@ for (let i = 0; i < input.length; ++i) {
 
 const totalTimes = Object.entries(map).map(([key, times]) => [
   key,
-  lodash.sumBy(times, "2")
+  lodash.sumBy(times, "2"),
 ]);
 const sortedTimes = totalTimes.sort((a, b) => b[1] - a[1]);
 const mostSleepId = sortedTimes[0][0];

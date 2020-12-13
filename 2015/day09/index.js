@@ -5,7 +5,7 @@ const input = readFile(__dirname, "./input.txt");
 
 const graph = new DefaultDict(Object);
 
-input.forEach(line => {
+input.forEach((line) => {
   const [from, rest] = line.split(" to ");
   const [to, dist] = rest.split(" = ");
 
@@ -17,7 +17,7 @@ const cities = Object.keys(graph);
 let minDist = Infinity;
 let maxDist = 0;
 
-cities.forEach(start => {
+cities.forEach((start) => {
   const stack = [[[start], 0]];
 
   while (stack.length) {

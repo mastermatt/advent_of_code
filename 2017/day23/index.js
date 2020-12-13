@@ -21,7 +21,7 @@ const instructions = {
     if (toInt(x) !== 0) {
       instIdx += toInt(y) - 1; // sub one because the main loop increments the index
     }
-  }
+  },
 };
 
 let mulCalls = 0;

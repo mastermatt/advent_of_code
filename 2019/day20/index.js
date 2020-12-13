@@ -2,7 +2,7 @@ const CoordinateSet = require("../../helpers/coordinateSet");
 const DefaultDict = require("../../helpers/defaultdict");
 const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input.txt").map(line => line.split(""));
+const input = readFile(__dirname, "./input.txt").map((line) => line.split(""));
 
 // const WALL = "#";
 const OPEN = ".";
@@ -14,7 +14,7 @@ const dirDeltas = [
   [0, 1],
   [1, 0],
   [0, -1],
-  [-1, 0]
+  [-1, 0],
 ];
 
 // not the actual height/width of th overall input, but the last index of OPEN spaces in the map.
@@ -78,13 +78,13 @@ const findNeighbors = ({ x: startX, y: startY }) => {
 };
 
 // compile the adjacency lists
-portals.forEach(portal => {
+portals.forEach((portal) => {
   portal.adjacent = findNeighbors(portal);
   portal.otherEnd = portals.find(
-    other => other.key === portal.key && other.hash !== portal.hash
+    (other) => other.key === portal.key && other.hash !== portal.hash
   );
 });
-const start = portals.find(p => p.key === START);
+const start = portals.find((p) => p.key === START);
 // console.log(portals);
 
 const shortestSingleDimension = () => {

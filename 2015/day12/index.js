@@ -5,7 +5,7 @@ const input = readFile(__dirname, "./input.txt")[0];
 
 function sumDigits(str) {
   const matches = str.match(/(-?\d+)/g) || [];
-  const nums = matches.map(digits => parseInt(digits));
+  const nums = matches.map((digits) => parseInt(digits));
   return lodash.sum(nums);
 }
 

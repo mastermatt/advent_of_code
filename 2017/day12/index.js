@@ -4,7 +4,7 @@ const readFile = require("../../helpers/readFile");
 const input = readFile(__dirname, "./input.txt");
 // 954 <-> 607, 1055, 1452
 
-const nodes = input.map(line => {
+const nodes = input.map((line) => {
   const [from, to] = line.split(" <-> ");
   return { from, to: to.split(", ") };
 });

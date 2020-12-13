@@ -1,7 +1,7 @@
 module.exports = class CoordinateSet extends Set {
   constructor(entries) {
     super();
-    (entries || []).forEach(entry => this.add(...entry));
+    (entries || []).forEach((entry) => this.add(...entry));
   }
 
   add(...coordinates) {
@@ -17,7 +17,7 @@ module.exports = class CoordinateSet extends Set {
   }
 
   forEach(callback, thisArg) {
-    super.forEach(value => {
+    super.forEach((value) => {
       const coordinates = this.dekey(value);
       callback.call(thisArg, coordinates, coordinates, this);
     });

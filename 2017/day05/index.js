@@ -1,6 +1,6 @@
 const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input.txt").map(x => parseInt(x));
+const input = readFile(__dirname, "./input.txt").map((x) => parseInt(x));
 
 let idx = 0;
 let cnt = 0;

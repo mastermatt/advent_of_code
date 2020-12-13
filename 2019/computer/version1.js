@@ -1,7 +1,7 @@
 /**
  * Represents state after Day 2
  */
-exports.execute = memory => {
+exports.execute = (memory) => {
   let p = 0;
   while (true) {
     const optCode = memory[p];

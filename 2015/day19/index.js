@@ -7,7 +7,7 @@ const medicineMolecule = input.pop();
 const replacements = new DefaultDict(Array);
 
 // Al => ThRnFAr
-input.filter(Boolean).forEach(line => {
+input.filter(Boolean).forEach((line) => {
   const [from, to] = line.split(" => ");
   replacements[from].push(to);
 });

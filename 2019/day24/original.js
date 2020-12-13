@@ -10,8 +10,8 @@ const SPACE = ".";
 const input = readFile(__dirname, "./input.txt");
 const gridWidth = input[0].length;
 const flatMap = input.join("").split("");
-const printState = data => {
-  lodash.chunk(data, gridWidth).forEach(line => console.log(line.join("")));
+const printState = (data) => {
+  lodash.chunk(data, gridWidth).forEach((line) => console.log(line.join("")));
   console.log(" ");
 };
 
@@ -33,15 +33,15 @@ const printState = data => {
 // - A bug dies (becoming an empty space) unless there is exactly one bug adjacent to it.
 // - An empty space becomes infested with a bug if exactly one or two bugs are adjacent to it.
 
-const isBug = char => char === BUG;
+const isBug = (char) => char === BUG;
 
 const numAdjacentBugs = (data, idx) => {
   return [
     data[idx - gridWidth],
     idx % gridWidth === 0 ? SPACE : data[idx - 1],
     idx % gridWidth === gridWidth - 1 ? SPACE : data[idx + 1],
-    data[idx + gridWidth]
-  ].filter(char => char === BUG).length;
+    data[idx + gridWidth],
+  ].filter((char) => char === BUG).length;
 };
 
 const nextChar = (currentChar, adjacentBugCount) => {
@@ -51,14 +51,14 @@ const nextChar = (currentChar, adjacentBugCount) => {
   return adjacentBugCount === 1 || adjacentBugCount === 2 ? BUG : SPACE;
 };
 
-const nextStep = data =>
+const nextStep = (data) =>
   data.map((char, idx) => {
     const adjacentBugs = numAdjacentBugs(data, idx);
     // console.log(idx, char, adjacentBugs, newChar);
     return nextChar(char, adjacentBugs);
   });
 
-const findFirstRepeat = data => {
+const findFirstRepeat = (data) => {
   const seen = new Set();
 
   while (true) {
@@ -72,7 +72,7 @@ const findFirstRepeat = data => {
   }
 };
 
-const biodiversityRating = data =>
+const biodiversityRating = (data) =>
   data.reduce((acc, char, idx) => acc + (char === BUG ? 1 << idx : 0), 0);
 
 printState(flatMap);
@@ -82,7 +82,7 @@ const firstRepeat = findFirstRepeat(flatMap);
 const partOne = biodiversityRating(firstRepeat);
 console.log("part one", partOne); // 28903899
 
-const nextStepRecursive = current => {
+const nextStepRecursive = (current) => {
   const destination = current.map(() => []);
 
   destination.forEach((level, levelIdx) => {
@@ -91,7 +91,7 @@ const nextStepRecursive = current => {
         .map(
           ([shift, jump]) => (current[levelIdx + jump] || [])[posIdx + shift]
         )
-        .filter(char => char === BUG).length;
+        .filter((char) => char === BUG).length;
 
       destination[levelIdx][posIdx] = nextChar(
         current[levelIdx][posIdx],
@@ -103,9 +103,9 @@ const nextStepRecursive = current => {
   return destination;
 };
 
-const countBugs = levels => {
+const countBugs = (levels) => {
   return levels.reduce(
-    (acc, level) => acc + level.filter(char => char === BUG).length,
+    (acc, level) => acc + level.filter((char) => char === BUG).length,
     0
   );
 };

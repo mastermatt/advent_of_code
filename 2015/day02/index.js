@@ -2,7 +2,7 @@ const lodash = require("lodash");
 
 const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input.txt").map(dimensions =>
+const input = readFile(__dirname, "./input.txt").map((dimensions) =>
   dimensions
     .split("x")
     .map(Number)

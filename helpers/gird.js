@@ -6,14 +6,14 @@ exports.neighborDeltas = [
   [0, -1],
   [-1, -1],
   [-1, 0],
-  [-1, 1]
+  [-1, 1],
 ];
 
 exports.orthogonalDeltas = [
   [0, 1],
   [1, 0],
   [0, -1],
-  [-1, 0]
+  [-1, 0],
 ];
 
 function* generateCoords(...demSizes) {

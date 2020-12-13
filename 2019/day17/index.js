@@ -1,17 +1,15 @@
 const readFile = require("../../helpers/readFile");
 const { Computer } = require("../computer");
 
-const input = readFile(__dirname, "./input.txt")[0]
-  .split(",")
-  .map(Number);
+const input = readFile(__dirname, "./input.txt")[0].split(",").map(Number);
 
 const comp = new Computer([...input]);
 comp.execute();
 
-const map = comp.outBuf.map(c => String.fromCharCode(c)).join("");
+const map = comp.outBuf.map((c) => String.fromCharCode(c)).join("");
 // console.log(map);
 
-const grid = map.split("\n").map(line => line.split(""));
+const grid = map.split("\n").map((line) => line.split(""));
 const directions = ["^", ">", "v", "<"];
 
 // movement deltas
@@ -19,19 +17,19 @@ const forwardDeltas = [
   [0, -1],
   [1, 0],
   [0, 1],
-  [-1, 0]
+  [-1, 0],
 ];
 const leftDeltas = [
   [-1, 0],
   [0, -1],
   [1, 0],
-  [0, 1]
+  [0, 1],
 ];
 const rightDeltas = [
   [1, 0],
   [0, 1],
   [-1, 0],
-  [0, -1]
+  [0, -1],
 ];
 
 let botX = 0;
@@ -46,8 +44,8 @@ grid.forEach((line, lineIdx) => {
       grid[lineIdx][charIdx - 1],
       grid[lineIdx][charIdx],
       grid[lineIdx][charIdx + 1],
-      (grid[lineIdx + 1] || [])[charIdx]
-    ].every(c => c === "#");
+      (grid[lineIdx + 1] || [])[charIdx],
+    ].every((c) => c === "#");
 
     if (intersection) {
       alignmentParameterSum += lineIdx * charIdx;
@@ -129,7 +127,7 @@ movementRules.push("n", "");
 const encodedMoveRules = movementRules
   .join("\n")
   .split("")
-  .map(c => c.charCodeAt(0));
+  .map((c) => c.charCodeAt(0));
 
 // Force the vacuum robot to wake up by changing the value in your ASCII program at address 0 from 1 to 2.
 const input2 = [...input];

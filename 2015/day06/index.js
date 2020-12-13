@@ -8,7 +8,7 @@ const input = readFile(__dirname, "./input.txt");
 // toggle 171,31 through 688,88
 // turn off 991,989 through 994,998
 const instrReg = /(?<cmd>turn on|turn off|toggle) (?<x1>\d+),(?<y1>\d+) through (?<x2>\d+),(?<y2>\d+)/;
-const parseInstruction = instruction => {
+const parseInstruction = (instruction) => {
   const groups = instruction.match(instrReg).groups;
   // cast the coords to ints
   groups.x1 |= 0;
@@ -20,7 +20,7 @@ const parseInstruction = instruction => {
 
 const buf = new Uint8Array(1000 * 1000);
 
-input.forEach(instruction => {
+input.forEach((instruction) => {
   const { cmd, x1, x2, y1, y2 } = parseInstruction(instruction);
 
   for (let x = x1; x <= x2; x++) {
@@ -41,12 +41,12 @@ input.forEach(instruction => {
   }
 });
 
-const partOne = buf.filter(i => i === 1).length;
+const partOne = buf.filter((i) => i === 1).length;
 console.log("part one", partOne); // 569999
 
 const buf2 = new Uint8ClampedArray(1000 * 1000);
 
-input.forEach(instruction => {
+input.forEach((instruction) => {
   const { cmd, x1, x2, y1, y2 } = parseInstruction(instruction);
 
   for (let x = x1; x <= x2; x++) {

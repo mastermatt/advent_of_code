@@ -1,6 +1,6 @@
 const input = "3113322113";
 
-const iterate = str => {
+const iterate = (str) => {
   const result = [];
   let c = 0;
   let l = str[0];

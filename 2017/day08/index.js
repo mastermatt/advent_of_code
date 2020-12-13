@@ -30,7 +30,7 @@ let highest = 0;
 // decrease that register's value, the amount by which to increase or decrease it, and a
 // condition. If the condition fails, skip the instruction without modifying the register.
 // noj dec -566 if hwv <= 911
-input.forEach(line => {
+input.forEach((line) => {
   const [modReg, ins, amount, fi, refReg, comp, refAmount] = line.split(" ");
   if (doComp(refReg, comp, refAmount)) {
     if (ins === "inc") regs[modReg] += parseInt(amount);

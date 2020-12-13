@@ -1,7 +1,7 @@
 const Iter = require("es-iter");
 const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input.txt").map(line => parseInt(line));
+const input = readFile(__dirname, "./input.txt").map((line) => parseInt(line));
 
 let partOne;
 for (const [a, b] of new Iter(input).combinations(2)) {

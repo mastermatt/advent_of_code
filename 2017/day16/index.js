@@ -25,7 +25,7 @@ function partner(a, b) {
 }
 
 const moveMap = { s: spin, x: exchange, p: partner };
-const moves = input.map(move => {
+const moves = input.map((move) => {
   const match = move.match(/^([sxp])(\w+)\/?(\w+)?$/);
   return [moveMap[match[1]], match[2], match[3]];
 });

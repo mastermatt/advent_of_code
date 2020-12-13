@@ -6,7 +6,7 @@ const housesVisited = new Set(["0,0"]);
 let x = 0;
 let y = 0;
 
-input.forEach(dir => {
+input.forEach((dir) => {
   switch (dir) {
     case "^":
       y++;
@@ -32,10 +32,10 @@ housesVisited.add("0,0");
 let which = 0;
 let positions = [
   [0, 0],
-  [0, 0]
+  [0, 0],
 ];
 
-input.forEach(dir => {
+input.forEach((dir) => {
   const pos = positions[which];
   switch (dir) {
     case "^":

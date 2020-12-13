@@ -15,7 +15,7 @@ function parseLine(line) {
     return [subject, []];
   }
 
-  const others = remaining.split(", ").map(c => {
+  const others = remaining.split(", ").map((c) => {
     // console.log(c)
     const match = c.match(/(\d+) (.+ bag)s?\.?/);
     containedInMap[match[2]].push(subject);

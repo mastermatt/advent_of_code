@@ -8,7 +8,7 @@ const input = readFile(__dirname, "./input.txt");
 const deck = lodash.range(10007);
 
 const cmds = {
-  "deal into new stack": deck => [...deck].reverse(),
+  "deal into new stack": (deck) => [...deck].reverse(),
   cut: (deck, n) => [...deck.slice(n), ...deck.slice(0, n)],
   "deal with increment": (deck, n) => {
     const result = new Array(deck.length);
@@ -16,10 +16,10 @@ const cmds = {
       result[(i * n) % deck.length] = deck[i];
     }
     return result;
-  }
+  },
 };
 
-const instructions = input.map(line => {
+const instructions = input.map((line) => {
   const m = line.match(/^([a-z ]+) ?([\d-]*)$/);
   // console.log(line, m)
   return [m[1].trim(), Number(m[2])];
@@ -38,7 +38,7 @@ console.log("step one", partOne); // 2519
 const cmds2 = {
   "deal into new stack": (idx, length) => length - idx - 1,
   cut: (idx, length, n) => (idx - n + length) % length,
-  "deal with increment": (idx, length, n) => (idx * n) % length
+  "deal with increment": (idx, length, n) => (idx * n) % length,
 };
 
 const result2 = instructions.reduce(
@@ -69,7 +69,7 @@ const cmds2rev = {
     // const r = (idx + (((idx%n)) * length)) / n;
     // console.log(idx, length, n, (idx%n), r);
     // return r
-  }
+  },
 };
 
 const result3 = [...instructions]
@@ -99,7 +99,7 @@ const cmdsRev = {
   "deal with increment": (deckSize, addi, multi, n) => {
     const inverse = modInverse(n, deckSize);
     return [addi * inverse, multi * inverse];
-  }
+  },
 };
 
 const run2 = () => {

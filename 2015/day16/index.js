@@ -12,18 +12,18 @@ const tape = {
   goldfish: 5,
   trees: 3,
   cars: 2,
-  perfumes: 1
+  perfumes: 1,
 };
 
 // Sue 1: cars: 9, akitas: 3, goldfish: 0
-const remembered = input.map(line => {
-  return [...line.matchAll(/(\w+): (\d+)/g)].map(match => [
+const remembered = input.map((line) => {
+  return [...line.matchAll(/(\w+): (\d+)/g)].map((match) => [
     match[1],
-    parseInt(match[2])
+    parseInt(match[2]),
   ]);
 });
 
-const idx = remembered.findIndex(stuff => {
+const idx = remembered.findIndex((stuff) => {
   return stuff.every(([key, val]) => tape[key] === val);
 });
 
@@ -33,7 +33,7 @@ console.log("part one", partOne); // 373
 const gt = new Set(["cats", "trees"]);
 const lt = new Set(["pomeranians", "goldfish"]);
 
-const idx2 = remembered.findIndex(stuff => {
+const idx2 = remembered.findIndex((stuff) => {
   return stuff.every(([key, val]) => {
     if (gt.has(key)) return val > tape[key];
     if (lt.has(key)) return val < tape[key];

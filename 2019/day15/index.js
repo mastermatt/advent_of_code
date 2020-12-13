@@ -9,9 +9,7 @@ const lodash = require("lodash");
 const readFile = require("../../helpers/readFile");
 const { Computer } = require("../computer");
 
-const input = readFile(__dirname, "./input.txt")[0]
-  .split(",")
-  .map(Number);
+const input = readFile(__dirname, "./input.txt")[0].split(",").map(Number);
 
 const WALL = 0;
 const OPEN = 1;
@@ -115,7 +113,7 @@ while (true) {
     break;
   }
 
-  path.forEach(stepDir => {
+  path.forEach((stepDir) => {
     comp.writeAndExec(stepDir);
     const status = lodash.last(comp.outBuf);
     const [exploredX, exploredY] = moveLoc(stepDir, x, y);
@@ -145,7 +143,7 @@ const distanceToOxygen = () => {
     }
 
     seen.add(nodeX, nodeY);
-    dirs.forEach(direction => {
+    dirs.forEach((direction) => {
       const [newX, newY] = moveLoc(direction, nodeX, nodeY);
 
       if (seen.has(newX, newY) || map.get(newX, newY) === WALL) {
@@ -174,7 +172,7 @@ const timeToFill = () => {
     longestDistance = Math.max(longestDistance, distance);
 
     seen.add(nodeX, nodeY);
-    dirs.forEach(direction => {
+    dirs.forEach((direction) => {
       const [newX, newY] = moveLoc(direction, nodeX, nodeY);
 
       if (seen.has(newX, newY) || map.get(newX, newY) === WALL) {

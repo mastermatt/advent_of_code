@@ -3,9 +3,7 @@ const lodash = require("lodash");
 const readFile = require("../../helpers/readFile");
 const computer = require("../computer");
 
-const input = readFile(__dirname, "./input.txt")[0]
-  .split(",")
-  .map(Number);
+const input = readFile(__dirname, "./input.txt")[0].split(",").map(Number);
 
 // const seq = [1,0,4,3,2];
 //
@@ -18,26 +16,26 @@ const input = readFile(__dirname, "./input.txt")[0]
 // console.log("######", a)
 
 // not having `itertools.permutations` really hurt me here
-const splitN = xxx => [
+const splitN = (xxx) => [
   xxx % 5,
   ((xxx / 5) | 0) % 5,
   ((xxx / 5 ** 2) | 0) % 5,
   ((xxx / 5 ** 3) | 0) % 5,
-  ((xxx / 5 ** 4) | 0) % 5
+  ((xxx / 5 ** 4) | 0) % 5,
 ];
-const splitM = xxx => [
+const splitM = (xxx) => [
   5 + (xxx % 5),
   5 + (((xxx / 5) | 0) % 5),
   5 + (((xxx / 5 ** 2) | 0) % 5),
   5 + (((xxx / 5 ** 3) | 0) % 5),
-  5 + (((xxx / 5 ** 4) | 0) % 5)
+  5 + (((xxx / 5 ** 4) | 0) % 5),
 ];
 
-const removeDups = xxx => {
+const removeDups = (xxx) => {
   return new Set(xxx).size === 5;
 };
 
-const a = seq => {
+const a = (seq) => {
   // console.log(seq)
   return seq.reduce((acc, i) => {
     const res = computer.execute([...input], [i, acc]);
@@ -63,13 +61,13 @@ const phaseSettings = lodash
 // it worked by looping until it hit a halt code then returned the array of outputs it
 // had built up. But it needed to output as it went and pause while waiting for inputs.
 // So I was forced to "quickly" refactor computer.js from a function to a class.
-const trySetting = settings => {
+const trySetting = (settings) => {
   const t = [
     new computer.Computer([...input], settings.pop()),
     new computer.Computer([...input], settings.pop()),
     new computer.Computer([...input], settings.pop()),
     new computer.Computer([...input], settings.pop()),
-    new computer.Computer([...input], settings.pop())
+    new computer.Computer([...input], settings.pop()),
   ];
 
   // const seq = [9, 8, 7, 6, 5];

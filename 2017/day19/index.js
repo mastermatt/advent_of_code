@@ -33,7 +33,7 @@ while (true) {
 
   if (currChar === "+") {
     // check possible options: straight on, followed by left/right
-    dir = [0, 1, 3].map(offset => (dir + offset) % 4).find(checkNewDir);
+    dir = [0, 1, 3].map((offset) => (dir + offset) % 4).find(checkNewDir);
     continue;
   }
 

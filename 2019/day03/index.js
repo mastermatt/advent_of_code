@@ -57,7 +57,7 @@ const between = (a, b, c) => (b < c ? a > b && a < c : a > c && a < b);
 // Manhattan distance of two points
 const distance = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 
-const dirToVector = input => {
+const dirToVector = (input) => {
   const [dir, ...rest] = input;
   let dis = Number(rest.join(""));
   if (dir === "D" || dir === "L") {
@@ -67,10 +67,10 @@ const dirToVector = input => {
   return dir === "R" || dir === "L" ? new Point(dis, 0) : new Point(0, dis);
 };
 
-const dirsToWire = dirs => {
+const dirsToWire = (dirs) => {
   let start = origin;
 
-  return dirs.split(",").map(dir => {
+  return dirs.split(",").map((dir) => {
     const end = start.add(dirToVector(dir));
     const line = new Line(start, end);
     start = end;

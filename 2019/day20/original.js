@@ -1,7 +1,7 @@
 const DefaultDict = require("../../helpers/defaultdict");
 const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input.txt").map(line => line.split(""));
+const input = readFile(__dirname, "./input.txt").map((line) => line.split(""));
 // const input = readFile(__dirname, "./sample3.txt").map(line => line.split(""));
 
 // const WALL = "#";
@@ -12,7 +12,7 @@ const dirDeltas = [
   [0, 1],
   [1, 0],
   [0, -1],
-  [-1, 0]
+  [-1, 0],
 ];
 
 class CoordinateSet extends Set {

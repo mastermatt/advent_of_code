@@ -5,7 +5,7 @@ const readFile = require("../../helpers/readFile");
 const input = readFile(__dirname, "./input.txt");
 const map = {};
 
-input.forEach(line => {
+input.forEach((line) => {
   const matches = line.match(
     /(\w+) would (\w+) (\d+) happiness units by sitting next to (\w+)\./
   );

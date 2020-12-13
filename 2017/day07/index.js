@@ -12,13 +12,13 @@ function parseLine(line) {
     name,
     weight: parseInt(weight),
     totalWeight: 0,
-    subs: subs ? subs.split(", ") : []
+    subs: subs ? subs.split(", ") : [],
   };
 }
 
 const parsed = input.map(parseLine);
-const s = new Set(parsed.map(node => node.name));
-parsed.forEach(node => node.subs.forEach(sub => s.delete(sub)));
+const s = new Set(parsed.map((node) => node.name));
+parsed.forEach((node) => node.subs.forEach((sub) => s.delete(sub)));
 const partOne = [...s.values()][0];
 console.log("part one", partOne); // mkxke
 
@@ -38,20 +38,20 @@ function totalWeight(name) {
 // populate total weights
 totalWeight(partOne);
 
-const unbalanced = parsed.filter(node => {
-  const subWeights = node.subs.map(sub => map[sub].totalWeight);
+const unbalanced = parsed.filter((node) => {
+  const subWeights = node.subs.map((sub) => map[sub].totalWeight);
   return new Set(subWeights).size > 1;
 });
 
 const topUnbalanced = lodash.sortBy(unbalanced, "totalWeight")[0];
 const subWeights = topUnbalanced.subs
-  .map(sub => map[sub].totalWeight)
+  .map((sub) => map[sub].totalWeight)
   .sort((a, b) => a - b);
 const oddWeight =
   subWeights[0] === subWeights[1] ? subWeights.pop() : subWeights.shift();
 const weightDiff = oddWeight - subWeights[0];
 const badBoy = topUnbalanced.subs.find(
-  sub => map[sub].totalWeight === oddWeight
+  (sub) => map[sub].totalWeight === oddWeight
 );
 // console.log(subWeights, oddWeight, weightDiff, badBoy, map[badBoy].weight)
 

@@ -8,13 +8,13 @@ let input = fs
   .split("\n")
   .map(Number);
 
-const calc = i => ((i / 3) | 0) - 2;
+const calc = (i) => ((i / 3) | 0) - 2;
 const fuels = input.map(calc);
 const total = lodash.sum(fuels);
 
 console.log("part one:", total); // 3161483
 
-const mf = input.map(i => {
+const mf = input.map((i) => {
   let t = 0;
   while (true) {
     i = calc(i);

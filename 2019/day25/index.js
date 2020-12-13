@@ -3,9 +3,7 @@ const Iter = require("es-iter");
 const readFile = require("../../helpers/readFile");
 const { Computer } = require("../computer");
 
-const input = readFile(__dirname, "./input.txt")[0]
-  .split(",")
-  .map(Number);
+const input = readFile(__dirname, "./input.txt")[0].split(",").map(Number);
 
 class Droid {
   constructor(instructions) {
@@ -36,8 +34,8 @@ class Droid {
   inventory() {
     return this.cmd("inv")
       .split("\n")
-      .filter(line => line.startsWith("- "))
-      .map(line => line.substring(2));
+      .filter((line) => line.startsWith("- "))
+      .map((line) => line.substring(2));
   }
 
   north() {
@@ -116,11 +114,11 @@ const inv = droid.inventory();
 const tryWeight = (droid, items) => {
   const currentInv = droid.inventory();
   items
-    .filter(item => !currentInv.includes(item))
-    .forEach(item => droid.take(item));
+    .filter((item) => !currentInv.includes(item))
+    .forEach((item) => droid.take(item));
   currentInv
-    .filter(item => !items.includes(item))
-    .forEach(item => droid.drop(item));
+    .filter((item) => !items.includes(item))
+    .forEach((item) => droid.drop(item));
   const checkpointResult = droid.west();
   const valid = !checkpointResult.includes(
     "you are ejected back to the checkpoint"

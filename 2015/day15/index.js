@@ -4,9 +4,9 @@ const readFile = require("../../helpers/readFile");
 const input = readFile(__dirname, "./input.txt");
 
 // Frosting: capacity 4, durability -2, flavor 0, texture 0, calories 5
-const parseLine = line => {
+const parseLine = (line) => {
   const rawAttrs = line.split(": ")[1];
-  const attrs = rawAttrs.split(", ").map(attr => {
+  const attrs = rawAttrs.split(", ").map((attr) => {
     const [key, val] = attr.split(" ");
     return [key, parseInt(val)];
   });
@@ -31,7 +31,7 @@ let highDietScore = 0;
 
 for (const dist of genDistribution()) {
   const score = attrs
-    .map(attr => {
+    .map((attr) => {
       const scores = dist.map((amount, idx) => ing[idx][attr] * amount);
       return Math.max(0, lodash.sum(scores));
     })

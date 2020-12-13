@@ -2,9 +2,7 @@ const lodash = require("lodash");
 const readFile = require("../../helpers/readFile");
 const { Computer } = require("../computer");
 
-const input = readFile(__dirname, "./input.txt")[0]
-  .split(",")
-  .map(Number);
+const input = readFile(__dirname, "./input.txt")[0].split(",").map(Number);
 
 const moveLoc = (dir, x, y) => {
   switch (dir) {
@@ -48,13 +46,13 @@ while (stack.length) {
 
   let x = 0;
   let y = 0;
-  path.forEach(d => {
+  path.forEach((d) => {
     [x, y] = moveLoc(d, x, y);
   });
 
   visited.add(`${x}:${y}`);
 
-  dirs.forEach(d => {
+  dirs.forEach((d) => {
     const key = moveLoc(d, x, y).join(":");
     if (!visited.has(key)) {
       stack.push([...path, d]);
@@ -88,13 +86,13 @@ while (stack.length) {
 
   let x = 0;
   let y = 0;
-  path.forEach(d => {
+  path.forEach((d) => {
     [x, y] = moveLoc(d, x, y);
   });
 
   visited.add(`${x}:${y}`);
 
-  dirs.forEach(d => {
+  dirs.forEach((d) => {
     const key = moveLoc(d, x, y).join(":");
     if (!visited.has(key)) {
       stack.push([...path, d]);

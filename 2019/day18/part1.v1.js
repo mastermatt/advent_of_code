@@ -4,7 +4,9 @@ const DefaultDict = require("../../helpers/defaultdict");
 const readFile = require("../../helpers/readFile");
 
 console.time();
-const input = readFile(__dirname, "./sample2.txt").map(line => line.split(""));
+const input = readFile(__dirname, "./sample2.txt").map((line) =>
+  line.split("")
+);
 
 const ENTRANCE = "@";
 const WALL = "#";
@@ -32,7 +34,7 @@ const dirDeltas = [
   [0, 1],
   [1, 0],
   [0, -1],
-  [-1, 0]
+  [-1, 0],
 ];
 
 const shortestPath = ({ x: x1, y: y1 }, { x: x2, y: y2 }) => {
@@ -44,7 +46,7 @@ const shortestPath = ({ x: x1, y: y1 }, { x: x2, y: y2 }) => {
 
     if (x === x2 && y === y2) {
       // lowercase here to make things easier later
-      const lower = doors.map(d => d.toLowerCase());
+      const lower = doors.map((d) => d.toLowerCase());
       return [dist, lower];
     }
 
@@ -97,14 +99,14 @@ let minDist = Infinity;
 const queue = [[ENTRANCE, 0, ENTRANCE]];
 
 const neighborKeys = (currentKey, seenKeys) => {
-  return allKeys.filter(prospect => {
+  return allKeys.filter((prospect) => {
     if (prospect === currentKey) {
       return false;
     }
 
     // only include neighbor nodes/keys that we can get to given our seen keys and doors along the way
     const doors = intermediateDoors[currentKey][prospect];
-    return doors.every(door => seenKeys.includes(door));
+    return doors.every((door) => seenKeys.includes(door));
   });
 };
 
@@ -121,7 +123,7 @@ while (queue.length) {
 
   const neighbors = neighborKeys(currentKey, seenKeys);
 
-  neighbors.forEach(prospect => {
+  neighbors.forEach((prospect) => {
     const newDistance = currentDist + keyDistances[currentKey][prospect];
     const newSeenKeys = [...new Set(seenKeys + prospect)].sort().join("");
     const hash = `${prospect}:${newSeenKeys}`;

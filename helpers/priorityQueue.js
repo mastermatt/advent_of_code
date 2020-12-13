@@ -1,8 +1,8 @@
 // https://stackoverflow.com/questions/42919469/efficient-way-to-implement-priority-queue-in-javascript/42919752#42919752
 const top = 0;
-const parent = i => ((i + 1) >>> 1) - 1;
-const left = i => (i << 1) + 1;
-const right = i => (i + 1) << 1;
+const parent = (i) => ((i + 1) >>> 1) - 1;
+const left = (i) => (i << 1) + 1;
+const right = (i) => (i + 1) << 1;
 
 class PriorityQueue {
   constructor(comparator = (a, b) => a > b) {
@@ -19,7 +19,7 @@ class PriorityQueue {
     return this._heap[top];
   }
   push(...values) {
-    values.forEach(value => {
+    values.forEach((value) => {
       this._heap.push(value);
       this._siftUp();
     });

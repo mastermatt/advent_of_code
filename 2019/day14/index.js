@@ -6,28 +6,28 @@ const productionCharts = {};
 let bank = {
   ORE: {
     available: Infinity,
-    consumed: 0
-  }
+    consumed: 0,
+  },
 };
 
-input.forEach(line => {
+input.forEach((line) => {
   const [costs, output] = line.split(" => ");
   const eachCost = costs.split(", ");
   const [outputCount, outputKey] = output.split(" ");
 
   productionCharts[outputKey] = {
     producedQty: Number(outputCount),
-    inputs: eachCost.map(c => {
+    inputs: eachCost.map((c) => {
       const [count, key] = c.split(" ");
       const requiredQty = Number(count);
       return { key, requiredQty };
-    })
+    }),
   };
 
   bank[outputKey] = { available: 0, consumed: 0 };
 });
 
-const produceFuel = requiredQty => {
+const produceFuel = (requiredQty) => {
   const stack = [{ key: "FUEL", requiredQty }];
 
   while (stack.length) {
@@ -55,7 +55,7 @@ const produceFuel = requiredQty => {
     stack.push({ key, requiredQty });
     const childNodes = inputShorts.map(({ key, requiredQty }) => ({
       key,
-      requiredQty: requiredQty * multiplier
+      requiredQty: requiredQty * multiplier,
     }));
     stack.push(...childNodes);
   }

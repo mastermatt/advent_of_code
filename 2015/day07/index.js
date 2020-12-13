@@ -16,10 +16,10 @@ const fnMap = {
   " OR ": (a, b) => a | b,
   " LSHIFT ": (a, b) => a << b,
   " RSHIFT ": (a, b) => a >> b,
-  "NOT ": (a, b) => ~b // bitwise complement
+  "NOT ": (a, b) => ~b, // bitwise complement
 };
 
-const preparedCmds = input.map(line => {
+const preparedCmds = input.map((line) => {
   const [cmd, target] = line.split(" -> ");
 
   for (const [keyword, fn] of Object.entries(fnMap)) {
@@ -29,7 +29,7 @@ const preparedCmds = input.map(line => {
   }
 
   // 123 -> x
-  return { target, fn: a => a, args: [cmd] };
+  return { target, fn: (a) => a, args: [cmd] };
 });
 
 const prepareArgs = (args, variables) => {

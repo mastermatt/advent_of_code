@@ -57,7 +57,7 @@ class Computer {
         return;
       }
 
-      const read = pos => {
+      const read = (pos) => {
         const mode = modes.pop() || "0";
         if (mode === "0") {
           return memory[memory[pos]] || 0;
@@ -189,7 +189,7 @@ class Computer {
         6: jumpIfFalse,
         7: lessThan,
         8: equals, // CMP
-        9: relBase
+        9: relBase,
       };
 
       const fn = optCodeMap[optCode] || badCode;

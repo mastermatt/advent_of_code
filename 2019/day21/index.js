@@ -3,24 +3,22 @@ const lodash = require("lodash");
 const readFile = require("../../helpers/readFile");
 const { Computer } = require("../computer");
 
-const input = readFile(__dirname, "./input.txt")[0]
-  .split(",")
-  .map(Number);
+const input = readFile(__dirname, "./input.txt")[0].split(",").map(Number);
 
 const NEW_LINE = 10;
 
-const run = springscript => {
+const run = (springscript) => {
   const encoded = springscript
     .trim()
     .split("")
-    .map(c => c.charCodeAt(0));
+    .map((c) => c.charCodeAt(0));
 
   const comp = new Computer([...input], ...encoded, NEW_LINE);
   comp.execute();
 
   const lastOutput = lodash.last(comp.outBuf);
   if (lastOutput === NEW_LINE) {
-    const map = comp.outBuf.map(c => String.fromCharCode(c)).join("");
+    const map = comp.outBuf.map((c) => String.fromCharCode(c)).join("");
     console.log(map);
     return null;
   }

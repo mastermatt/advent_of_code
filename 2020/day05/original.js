@@ -6,7 +6,7 @@ const input = readFile(__dirname, "./input.txt");
 
 const reduce = (str, start, end) => {
   const a = [start, end];
-  [...str].forEach(char => {
+  [...str].forEach((char) => {
     const mid = ((a[1] - a[0]) / 2) | 0;
     if (char === "F" || char === "L") {
       a[1] -= mid + 1;
@@ -17,7 +17,7 @@ const reduce = (str, start, end) => {
   return a[0];
 };
 
-const a = input.map(line => {
+const a = input.map((line) => {
   const rows = line.slice(0, 7);
   const cols = line.slice(7);
   const row = reduce(rows, 0, 127);

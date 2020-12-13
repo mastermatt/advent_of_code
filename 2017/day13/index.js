@@ -5,7 +5,7 @@ const input = readFile(__dirname, "./input.txt");
 // const input = ['0: 3', '1: 2', '4: 4', '6: 4',]
 
 const depths = [];
-input.forEach(line => {
+input.forEach((line) => {
   const [depth, range] = line.split(": ");
   depths[depth] = parseInt(range);
 });

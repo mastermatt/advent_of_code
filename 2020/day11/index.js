@@ -8,8 +8,9 @@ const OCCUPIED = "#";
 const input = readFile(__dirname, "./input.txt");
 // const input = readFile(__dirname, "./sample.txt");
 
-const countOcc = grid => grid.flat().filter(char => char === OCCUPIED).length;
-const printGrid = grid => grid.forEach(row => console.log(row.join("")));
+const countOcc = (grid) =>
+  grid.flat().filter((char) => char === OCCUPIED).length;
+const printGrid = (grid) => grid.forEach((row) => console.log(row.join("")));
 
 // If a seat is empty (L) and there are no occupied seats adjacent to it, the seat becomes occupied.
 // If a seat is occupied (#) and four or more seats adjacent to it are also occupied, the seat becomes empty.

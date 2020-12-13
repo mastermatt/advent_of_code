@@ -2,17 +2,15 @@ const lodash = require("lodash");
 
 const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input.txt")[0]
-  .split("")
-  .map(Number);
+const input = readFile(__dirname, "./input.txt")[0].split("").map(Number);
 
 const h = 25;
 const v = 6;
 const layerSize = h * v;
 
-const count = (arr, x) => arr.filter(i => i === x).length;
+const count = (arr, x) => arr.filter((i) => i === x).length;
 const layers = lodash.chunk(input, layerSize);
-const numZeros = layers.map(l => count(l, 0));
+const numZeros = layers.map((l) => count(l, 0));
 
 let fewestZeros = Infinity;
 let fewestIndex;
@@ -34,7 +32,7 @@ console.log("part one", partOne); // 1703
 
 const finalImg = new Array(layerSize).fill(2);
 
-layers.forEach(layer => {
+layers.forEach((layer) => {
   layer.forEach((pixelColor, i) => {
     if (pixelColor === 2 || finalImg[i] !== 2) {
       return;
@@ -45,8 +43,8 @@ layers.forEach(layer => {
 });
 
 const lines = lodash.chunk(finalImg, h);
-lines.forEach(line => {
-  console.log(line.map(p => (p === 0 ? " " : "■")).join(""));
+lines.forEach((line) => {
+  console.log(line.map((p) => (p === 0 ? " " : "■")).join(""));
 });
 
 // console.log(finalImg)

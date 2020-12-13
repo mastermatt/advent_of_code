@@ -11,8 +11,8 @@ const input = fs
 const map = {
   COM: {
     // orbits: a,
-    count: 0
-  }
+    count: 0,
+  },
 };
 
 const incr = (i, x) => {
@@ -31,22 +31,22 @@ const incr = (i, x) => {
   // }
 };
 
-input.forEach(line => {
+input.forEach((line) => {
   const [a, b] = line.split(")");
 
   map[b] = {
     orbits: a,
-    count: 1
+    count: 1,
   };
 });
 
-Object.values(map).forEach(v => {
+Object.values(map).forEach((v) => {
   const x = incr(v.orbits, 0);
   // console.log( v.orbits, x)
 });
 
 // console.log(map)
-const counts = Object.values(map).map(v => v.count);
+const counts = Object.values(map).map((v) => v.count);
 const partOne = lodash.sum(counts);
 console.log("part one", partOne); // 162816
 
@@ -59,7 +59,7 @@ COM - B - C - D - E - F
                \
                 I - SAN
  */
-const aaa = s => {
+const aaa = (s) => {
   const res = [];
   while (s !== "COM") {
     res.push(map[s].orbits);

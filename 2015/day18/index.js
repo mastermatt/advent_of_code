@@ -4,8 +4,8 @@ const readFile = require("../../helpers/readFile");
 const CoordinateSet = require("../../helpers/coordinateSet");
 const { generateCoords, neighborDeltas } = require("../../helpers/gird");
 
-const input = readFile(__dirname, "./input.txt").map(line =>
-  line.split("").map(char => char === "#")
+const input = readFile(__dirname, "./input.txt").map((line) =>
+  line.split("").map((char) => char === "#")
 );
 
 // A light which is on stays on when 2 or 3 neighbors are on, and turns off otherwise.
@@ -45,7 +45,7 @@ const corners = new CoordinateSet([
   [0, 0],
   [0, input.length - 1],
   [input[0].length - 1, 0],
-  [input[0].length - 1, input.length - 1]
+  [input[0].length - 1, input.length - 1],
 ]);
 
 grid = lodash.cloneDeep(input);

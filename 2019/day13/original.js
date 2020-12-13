@@ -4,9 +4,7 @@ const readFile = require("../../helpers/readFile");
 
 const { Computer } = require("../computer");
 
-const input = readFile(__dirname, "./input.txt")[0]
-  .split(",")
-  .map(Number);
+const input = readFile(__dirname, "./input.txt")[0].split(",").map(Number);
 
 const screen = [];
 
@@ -26,20 +24,20 @@ while (comp.outBuf.length) {
 }
 
 const partOne = lodash.sum(
-  screen.map(line => {
-    return line.filter(a => a === 2).length;
+  screen.map((line) => {
+    return line.filter((a) => a === 2).length;
   })
 );
 
 console.log("step one", partOne); // 286
 
-const printScreen = screen => {
+const printScreen = (screen) => {
   const pixelMap = {
     0: " ",
     1: "#",
     2: "x",
     3: "-",
-    4: "*"
+    4: "*",
   };
 
   // 0 is an empty tile. No game object appears in this tile.
@@ -47,8 +45,8 @@ const printScreen = screen => {
   // 2 is a block tile. Blocks can be broken by the ball.
   // 3 is a horizontal paddle tile. The paddle is indestructible.
   // 4 is a ball tile. The ball moves diagonally and bounces off objects.
-  screen.forEach(line => {
-    const pixels = line.map(c => pixelMap[c]);
+  screen.forEach((line) => {
+    const pixels = line.map((c) => pixelMap[c]);
     console.log(pixels.join(""));
   });
 };

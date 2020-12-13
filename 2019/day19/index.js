@@ -3,9 +3,7 @@ const lodash = require("lodash");
 const readFile = require("../../helpers/readFile");
 const { Computer } = require("../computer");
 
-const input = readFile(__dirname, "./input.txt")[0]
-  .split(",")
-  .map(Number);
+const input = readFile(__dirname, "./input.txt")[0].split(",").map(Number);
 
 const isPulled = (x, y) => {
   const comp = new Computer([...input], x, y);
@@ -16,8 +14,8 @@ const isPulled = (x, y) => {
 const range = lodash.range(50);
 let partOne = 0;
 
-const grid = range.map(y => {
-  return range.map(x => {
+const grid = range.map((y) => {
+  return range.map((x) => {
     const result = isPulled(x, y);
     partOne += result;
     return result ? "#" : ".";
@@ -26,7 +24,7 @@ const grid = range.map(y => {
 
 console.log("partOne", partOne); // 197
 
-grid.forEach(line => console.log(line.join("")));
+grid.forEach((line) => console.log(line.join("")));
 
 let x;
 let y = 1000;

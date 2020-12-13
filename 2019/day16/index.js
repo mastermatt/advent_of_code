@@ -2,13 +2,11 @@ const lodash = require("lodash");
 
 const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input.txt")[0]
-  .split("")
-  .map(Number);
+const input = readFile(__dirname, "./input.txt")[0].split("").map(Number);
 
 const repeats = [0, 1, 0, -1];
 
-const phase = list => {
+const phase = (list) => {
   return list.map((_, i) => {
     const rowTotal = list.reduce((acc, val, j) => {
       const mul = repeats[(((j + 1) / (i + 1)) | 0) % 4];
@@ -36,7 +34,7 @@ for (let i = 0; i < 10000; i++) {
 }
 // console.log("have big input", bigInput.length);
 
-const phase2 = list => {
+const phase2 = (list) => {
   let sum = lodash.sum(list);
 
   return list.map((_, i) => {

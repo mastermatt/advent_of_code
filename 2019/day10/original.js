@@ -3,8 +3,8 @@ const lodash = require("lodash");
 const DefaultDict = require("../../helpers/defaultdict");
 const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input.txt").map(line =>
-  line.split("").map(c => c === "#")
+const input = readFile(__dirname, "./input.txt").map((line) =>
+  line.split("").map((c) => c === "#")
 );
 
 // const h = input[0].length;
@@ -99,13 +99,13 @@ positions
   });
 // console.log(angles)
 
-Object.values(b).forEach(q => q.sort((a, b) => dist(...a) - dist(...b)));
+Object.values(b).forEach((q) => q.sort((a, b) => dist(...a) - dist(...b)));
 
 const vaporizedCoordinates = [];
 while (Object.keys(b).length) {
   const sortedAngles = Object.keys(b).sort((a, b) => a - b);
 
-  sortedAngles.forEach(angle => {
+  sortedAngles.forEach((angle) => {
     vaporizedCoordinates.push(b[angle].shift());
     if (!b[angle].length) {
       delete b[angle];

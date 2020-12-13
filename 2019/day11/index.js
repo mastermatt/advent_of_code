@@ -1,9 +1,7 @@
 const readFile = require("../../helpers/readFile");
 const { Computer } = require("../computer");
 
-const input = readFile(__dirname, "./input.txt")[0]
-  .split(",")
-  .map(Number);
+const input = readFile(__dirname, "./input.txt")[0].split(",").map(Number);
 
 const comp = new Computer([...input]);
 let x = 0;
@@ -12,7 +10,7 @@ let fx = 0;
 let fy = -1;
 
 const grid = {
-  "0:0": 1 // this val changes for part one vs two
+  "0:0": 1, // this val changes for part one vs two
 };
 
 const positions = [];
@@ -41,7 +39,7 @@ const partOne = Object.keys(grid).length;
 console.log("part one", partOne); // 2088
 
 const partTwo = positions
-  .map(line => line.map(x => (x ? "█" : " ")).join(""))
+  .map((line) => line.map((x) => (x ? "█" : " ")).join(""))
   .join("\n");
 console.log("part two:");
 console.log(partTwo); // URCAFLCP

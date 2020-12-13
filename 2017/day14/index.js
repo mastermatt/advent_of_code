@@ -8,7 +8,7 @@ const input = "ljoxqyyw";
 function hash(hashInput) {
   const lengths = hashInput
     .split("")
-    .map(c => c.charCodeAt(0))
+    .map((c) => c.charCodeAt(0))
     .concat(17, 31, 73, 47, 23);
   const list = lodash.range(256);
   let currPos = 0;
@@ -38,12 +38,12 @@ function hash(hashInput) {
   return denseHash;
 }
 
-const grid = lodash.range(128).map(idx => {
+const grid = lodash.range(128).map((idx) => {
   const hashed = hash(`${input}-${idx}`);
-  return hashed.map(i => i.toString(2).padStart(8, "0")).join("");
+  return hashed.map((i) => i.toString(2).padStart(8, "0")).join("");
 });
 
-const usedPerRow = grid.map(row => lodash.countBy(row)["1"] || 0);
+const usedPerRow = grid.map((row) => lodash.countBy(row)["1"] || 0);
 
 const partOne = lodash.sum(usedPerRow);
 console.log("part one", partOne); // 8316

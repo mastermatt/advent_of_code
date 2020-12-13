@@ -44,7 +44,7 @@ exports.modInverse = modInverse;
 // Fast modular exponentiation for a ^ b mod n
 // https://en.wikipedia.org/wiki/Modular_exponentiation
 // O(log(exponent))
-const modExp = function(base, exponent, modulus) {
+const modExp = function (base, exponent, modulus) {
   base = BigInt(base % modulus);
   exponent = BigInt(exponent);
   modulus = BigInt(modulus);
@@ -63,7 +63,7 @@ const modExp = function(base, exponent, modulus) {
 exports.modExp = modExp;
 
 // https://stackoverflow.com/a/40200710/823942
-const isPrime = num => {
+const isPrime = (num) => {
   for (let i = 2, s = Math.sqrt(num); i <= s; ++i) {
     if (num % i === 0) return false;
   }
@@ -71,7 +71,7 @@ const isPrime = num => {
 };
 exports.isPrime = isPrime;
 
-const factors = num => {
+const factors = (num) => {
   const res = [1];
   const back = [num];
   const root = Math.sqrt(num);

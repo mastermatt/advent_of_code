@@ -1,6 +1,6 @@
 const readFile = require("../../helpers/readFile");
 
-const input = readFile(__dirname, "./input.txt").map(line => line.split(" "));
+const input = readFile(__dirname, "./input.txt").map((line) => line.split(" "));
 
 let select = 0;
 const pointers = [0, 0];
@@ -14,11 +14,11 @@ function toInt(val) {
 }
 
 const instructions = {
-  snd: x => {
+  snd: (x) => {
     queues[select ^ 1].push(toInt(x));
     ++sends[select];
   },
-  rcv: x => (registers[select][x] = queues[select].shift()),
+  rcv: (x) => (registers[select][x] = queues[select].shift()),
   set: (x, y) => (registers[select][x] = toInt(y)),
   add: (x, y) => (registers[select][x] += toInt(y)),
   mul: (x, y) => (registers[select][x] *= toInt(y)),
@@ -27,7 +27,7 @@ const instructions = {
     if (toInt(x) > 0) {
       pointers[select] += toInt(y) - 1;
     }
-  }
+  },
 };
 
 while (true) {

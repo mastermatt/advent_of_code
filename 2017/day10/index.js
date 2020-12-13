@@ -4,7 +4,7 @@ const readFile = require("../../helpers/readFile");
 
 const input = readFile(__dirname, "./input.txt")[0];
 
-let lengths = input.split(",").map(nums => parseInt(nums));
+let lengths = input.split(",").map((nums) => parseInt(nums));
 let list = lodash.range(256);
 let currPos = 0;
 let skipSize = 0;
@@ -34,7 +34,7 @@ console.log("part one", partOne); // 46600
 
 lengths = input
   .split("")
-  .map(c => c.charCodeAt(0))
+  .map((c) => c.charCodeAt(0))
   .concat(17, 31, 73, 47, 23);
 list = lodash.range(256);
 currPos = 0;
@@ -45,6 +45,6 @@ const denseHash = new Array(16).fill(0);
 list.forEach((num, idx) => (denseHash[(idx / 16) | 0] ^= num));
 
 const partTwo = denseHash
-  .map(num => num.toString(16).padStart(2, "0"))
+  .map((num) => num.toString(16).padStart(2, "0"))
   .join("");
 console.log("part two", partTwo); // 23234babdc6afa036749cfa9b597de1b
