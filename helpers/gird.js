@@ -34,3 +34,9 @@ function* generateCoords(...demSizes) {
   }
 }
 exports.generateCoords = generateCoords;
+
+// https://en.wikipedia.org/wiki/Manhattan_distance
+function manhattanDistance(...coordinates) {
+  return coordinates.reduce((a, b) => Math.abs(a) + Math.abs(b));
+}
+exports.manhattanDistance = manhattanDistance;
