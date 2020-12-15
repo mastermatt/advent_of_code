@@ -15,7 +15,8 @@ function run(numGroups) {
       .filter((vals) => lodash.sum(vals) === targetWeight);
 
     for (const vals of iter) {
-      minQE = Math.min(minQE, vals.reduce((a, b) => a * b));
+      const qa = vals.reduce((a, b) => a * b);
+      minQE = Math.min(minQE, qa);
     }
 
     ++smallSize;
