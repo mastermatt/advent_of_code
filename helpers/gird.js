@@ -46,8 +46,17 @@ function* generateNeighborDeltas(numDimensions) {
 }
 exports.generateNeighborDeltas = generateNeighborDeltas;
 
-// https://en.wikipedia.org/wiki/Manhattan_distance
-function manhattanDistance(...coordinates) {
-  return coordinates.reduce((a, b) => Math.abs(a) + Math.abs(b));
+/**
+ * https://en.wikipedia.org/wiki/Manhattan_distance
+ * @param {number[]} a
+ * @param {number[]} b
+ * @return {number}
+ */
+function manhattanDistance(a, b) {
+  let result = 0;
+  for (let i = 0; i < a.length; i++) {
+    result += Math.abs(a[i] - b[i]);
+  }
+  return result;
 }
 exports.manhattanDistance = manhattanDistance;

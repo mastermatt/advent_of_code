@@ -27,7 +27,7 @@ function one() {
     // console.log(...vector, ...inst);
   }
 
-  return manhattanDistance(vector[0], vector[1]);
+  return manhattanDistance([0, 0], [vector[0], vector[1]]);
 }
 
 const partOne = one();
@@ -55,7 +55,7 @@ function two() {
     positions = step2(...positions, ...inst);
   }
 
-  return manhattanDistance(positions[0], positions[1]);
+  return manhattanDistance([0, 0], [positions[0], positions[1]]);
 }
 
 const partTwo = two();
