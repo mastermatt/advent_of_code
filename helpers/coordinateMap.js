@@ -16,7 +16,23 @@ module.exports = class CoordinateMap extends Map {
   delete(...coordinates) {
     return super.delete(this.key(coordinates));
   }
+
+  *entries() {
+    for (const [coords, val] of super.entries()) {
+      yield [this.dekey(coords), val];
+    }
+  }
+
+  *keys() {
+    for (const coords of super.keys()) {
+      yield this.dekey(coords);
+    }
+  }
+
   key(coordinates) {
     return coordinates.join(",");
+  }
+  dekey(coordinates) {
+    return coordinates.split(",").map(Number);
   }
 };

@@ -32,7 +32,7 @@ module.exports = class CoordinateSet extends Set {
 
   *values() {
     for (const value of super.values()) {
-      yield this.dekey(value).map(Number);
+      yield this.dekey(value);
     }
   }
 
@@ -49,6 +49,6 @@ module.exports = class CoordinateSet extends Set {
   }
 
   dekey(value) {
-    return value.split(",");
+    return value.split(",").map(Number);
   }
 };

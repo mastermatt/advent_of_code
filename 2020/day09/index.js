@@ -1,4 +1,3 @@
-const lodash = require("lodash");
 const Iter = require("es-iter");
 const readFile = require("../../helpers/readFile");
 

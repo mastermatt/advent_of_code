@@ -35,6 +35,17 @@ function* generateCoords(...demSizes) {
 }
 exports.generateCoords = generateCoords;
 
+// for 2 dimensions, just use the `neighborDeltas` array
+function* generateNeighborDeltas(numDimensions) {
+  const demSizes = new Array(numDimensions).fill(3);
+  for (const deltas of generateCoords(...demSizes)) {
+    if (deltas.every((coord) => coord === 1)) continue; // filter the origin
+
+    yield deltas.map((coord) => coord - 1);
+  }
+}
+exports.generateNeighborDeltas = generateNeighborDeltas;
+
 // https://en.wikipedia.org/wiki/Manhattan_distance
 function manhattanDistance(...coordinates) {
   return coordinates.reduce((a, b) => Math.abs(a) + Math.abs(b));
