@@ -1,5 +1,5 @@
 const lodash = require("lodash");
-const { generateCoords } = require("../../helpers/gird");
+const { generateCoords, genSymmetries } = require("../../helpers/gird");
 const readFile = require("../../helpers/readFile");
 
 const input = readFile(__dirname, "./input.txt");
@@ -7,23 +7,6 @@ const startPattern = ".#./..#/###";
 
 const split = (str) => str.split("/").map((i) => i.split(""));
 const unsplit = (matrix) => matrix.map((i) => i.join("")).join("/");
-
-// given a 2D matrix (nested arrays) yield the eight symmetries (initial, rotation and reflection)
-// initial > trans > rot 90, flipped Y > reverse > rot 180 > trans > flipped Y > reverse > rot 180 > trans > rot 90, flipped X > reverse > rot 90 > trans > flipped X
-function* genSymmetries(grid) {
-  // reversing basically flips on the X axis
-  // unzip basically transposes the nested arrays
-  const transpose = () => (grid = lodash.unzip(grid));
-
-  yield grid;
-  yield transpose();
-  yield grid.reverse();
-  yield transpose();
-  yield grid.reverse();
-  yield transpose();
-  yield grid.reverse();
-  yield transpose();
-}
 
 function* genSymRules(from, to) {
   const splitTo = split(to);

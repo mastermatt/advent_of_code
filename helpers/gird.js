@@ -1,3 +1,5 @@
+const lodash = require("lodash");
+
 exports.neighborDeltas = [
   [0, 1],
   [1, 1],
@@ -60,3 +62,25 @@ function manhattanDistance(a, b) {
   return result;
 }
 exports.manhattanDistance = manhattanDistance;
+
+// given a 2D matrix (nested arrays) yield the eight symmetries (initial, rotation and reflection)
+// initial > trans > rot 90, flipped Y > reverse > rot 270 > trans > flipped Y > reverse > rot 180 > trans > rot 90, flipped X > reverse > rot 90 > trans > flipped X
+// mutates the input.
+function* genSymmetries(grid) {
+  // reversing basically flips on the X axis
+  // unzip basically transposes the nested arrays
+  const transpose = () => {
+    grid.splice(0, grid.length, ...lodash.unzip(grid));
+    return grid;
+  };
+
+  yield grid;
+  yield transpose();
+  yield grid.reverse();
+  yield transpose();
+  yield grid.reverse();
+  yield transpose();
+  yield grid.reverse();
+  yield transpose();
+}
+exports.genSymmetries = genSymmetries;
