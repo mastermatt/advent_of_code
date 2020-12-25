@@ -5,17 +5,25 @@ const readFile = require("../../helpers/readFile");
 
 const input = readFile(__dirname, "./input.txt");
 
+// const deltaMap = {
+//   e: [-1, 1, 0],
+//   se: [-1, 0, 1],
+//   sw: [0, -1, 1],
+//   w: [1, -1, 0],
+//   nw: [1, 0, -1],
+//   ne: [0, 1, -1],
+// };
 const deltaMap = {
-  e: [-1, 1, 0],
-  se: [-1, 0, 1],
-  sw: [0, -1, 1],
-  w: [1, -1, 0],
-  nw: [1, 0, -1],
-  ne: [0, 1, -1],
+  e: [-1, 0],
+  se: [-1, 1],
+  sw: [0, 1],
+  w: [1, 0],
+  nw: [1, -1],
+  ne: [0, -1],
 };
 const deltas = Object.values(deltaMap);
 
-const sumCoords = ([xa, ya, za], [xb, yb, zb]) => [xa + xb, ya + yb, za + zb];
+const sumCoords = ([aq, ar], [bq, br]) => [aq + bq, ar + br];
 
 const tiles = input
   .map((line) => line.match(/(e|se|sw|w|nw|ne)/g))
@@ -50,7 +58,7 @@ function day(startingSet) {
   }
 
   for (const [coords, c] of adjacencyCounter.entries()) {
-    if (c === 2 || (c === 1 && startingSet.has(...coords))){
+    if (c === 2 || (c === 1 && startingSet.has(...coords))) {
       result.add(...coords);
     }
   }
