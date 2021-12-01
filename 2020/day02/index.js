@@ -4,7 +4,8 @@ const readFile = require("../../helpers/readFile");
 const input = readFile(__dirname, "./input.txt");
 
 // 1-3 a: abcde
-const regexp = /^(?<first>\d+)-(?<second>\d+) (?<char>[a-z]): (?<password>[a-z]+)$/;
+const regexp =
+  /^(?<first>\d+)-(?<second>\d+) (?<char>[a-z]): (?<password>[a-z]+)$/;
 const parsed = input.map((line) => line.match(regexp).groups);
 
 const validPartOnes = parsed.filter(({ first, second, char, password }) => {

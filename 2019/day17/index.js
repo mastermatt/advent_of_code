@@ -107,7 +107,8 @@ const pathStr = path.join(",");
 // - allow for sub routines to be reused before finding the first occurrence of all of them
 // - limit how many chars each sub routine could be, even though movements could be double digits
 // - deal with trailing commas (not well, the code below cleans these up)
-const regex = /^(?<A>(?:[LR],\d+,){1,5})\1*(?<B>(?:[LR],\d+,){1,5})(?:\1|\2)*(?<C>(?:[LR],\d+,){1,5})(?:\1|\2|\3)*$/;
+const regex =
+  /^(?<A>(?:[LR],\d+,){1,5})\1*(?<B>(?:[LR],\d+,){1,5})(?:\1|\2)*(?<C>(?:[LR],\d+,){1,5})(?:\1|\2|\3)*$/;
 
 const subRoutineMatches = (pathStr + ",").match(regex);
 const movementRules = [];

@@ -7,7 +7,8 @@ const input = readFile(__dirname, "./input.txt");
 // turn on 212,957 through 490,987
 // toggle 171,31 through 688,88
 // turn off 991,989 through 994,998
-const instrReg = /(?<cmd>turn on|turn off|toggle) (?<x1>\d+),(?<y1>\d+) through (?<x2>\d+),(?<y2>\d+)/;
+const instrReg =
+  /(?<cmd>turn on|turn off|toggle) (?<x1>\d+),(?<y1>\d+) through (?<x2>\d+),(?<y2>\d+)/;
 const parseInstruction = (instruction) => {
   const groups = instruction.match(instrReg).groups;
   // cast the coords to ints

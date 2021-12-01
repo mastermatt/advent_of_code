@@ -8,7 +8,8 @@
 const originalPassword = "cqjxjnds";
 
 const doublePairRe = /([a-z])\1.*([a-z])\2/;
-const tripleSeqRe = /(abc|bcd|cde|def|efg|fgh|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz)/;
+const tripleSeqRe =
+  /(abc|bcd|cde|def|efg|fgh|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz)/;
 const nextChar = {
   a: "b",
   b: "c",

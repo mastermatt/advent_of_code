@@ -5,7 +5,8 @@ const readFile = require("../../helpers/readFile");
 const input = readFile(__dirname, "./input.txt");
 
 // p=<3,0,0>, v=<2,0,0>, a=<-1,0,0>
-const reInput = /p=<\s*([\d-]+),\s*([\d-]+),\s*([\d-]+)>, v=<\s*([\d-]+),\s*([\d-]+),\s*([\d-]+)>, a=<\s*([\d-]+),\s*([\d-]+),\s*([\d-]+)>/;
+const reInput =
+  /p=<\s*([\d-]+),\s*([\d-]+),\s*([\d-]+)>, v=<\s*([\d-]+),\s*([\d-]+),\s*([\d-]+)>, a=<\s*([\d-]+),\s*([\d-]+),\s*([\d-]+)>/;
 
 const positions = [];
 const velocities = [];

@@ -114,9 +114,10 @@ const countBugsAcrossLevels = (levels) => {
 const two = (startingData, repetitions, print = false) => {
   const levels = lodash
     .range(repetitions)
-    .reduce((levels) => nextStepRecursive(expandLevels(levels)), [
-      startingData,
-    ]);
+    .reduce(
+      (levels) => nextStepRecursive(expandLevels(levels)),
+      [startingData]
+    );
 
   if (print) {
     printAllStates(levels);

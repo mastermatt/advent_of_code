@@ -2,7 +2,8 @@ const readFile = require("../../helpers/readFile");
 
 const targetTime = 2503;
 // Vixen can fly 8 km/s for 8 seconds, but then must rest for 53 seconds.
-const regexp = /(\w+) can fly (\d+) km\/s for (\d+) seconds, but then must rest for (\d+) seconds\./;
+const regexp =
+  /(\w+) can fly (\d+) km\/s for (\d+) seconds, but then must rest for (\d+) seconds\./;
 const input = readFile(__dirname, "./input.txt").map((line) =>
   line
     .match(regexp)
