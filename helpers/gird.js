@@ -11,12 +11,13 @@ exports.neighborDeltas = [
   [-1, 1],
 ];
 
-exports.orthogonalDeltas = [
+const orthogonalDeltas = [
   [0, 1],
   [1, 0],
   [0, -1],
   [-1, 0],
 ];
+exports.orthogonalDeltas = orthogonalDeltas;
 
 function* generateCoords(...demSizes) {
   const demCnt = demSizes.length;
@@ -47,6 +48,21 @@ function* generateNeighborDeltas(numDimensions) {
   }
 }
 exports.generateNeighborDeltas = generateNeighborDeltas;
+
+// assumes the grid is a std 2d array accessed as grid[y][x].
+// yields [val, x, y]
+function* orthogonalNeighbors(x, y, grid) {
+  const maxX = grid[0].length - 1;
+  const maxY = grid.length - 1;
+  for (const [xd, yd] of orthogonalDeltas) {
+    const xn = x + xd;
+    const yn = y + yd;
+    if (xn >= 0 && xn <= maxX && yn >= 0 && yn <= maxY) {
+      yield [grid[yn][xn], xn, yn];
+    }
+  }
+}
+exports.orthogonalNeighbors = orthogonalNeighbors;
 
 /**
  * https://en.wikipedia.org/wiki/Manhattan_distance
