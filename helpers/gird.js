@@ -1,6 +1,6 @@
 const lodash = require("lodash");
 
-exports.neighborDeltas = [
+const neighborDeltas = [
   [0, 1],
   [1, 1],
   [1, 0],
@@ -10,6 +10,7 @@ exports.neighborDeltas = [
   [-1, 0],
   [-1, 1],
 ];
+exports.neighborDeltas = neighborDeltas;
 
 const orthogonalDeltas = [
   [0, 1],
@@ -49,18 +50,23 @@ function* generateNeighborDeltas(numDimensions) {
 }
 exports.generateNeighborDeltas = generateNeighborDeltas;
 
+// yields [val, x, y] for each neighbor of the given point, ignoring coordinates outside the grid
 // assumes the grid is a std 2d array accessed as grid[y][x].
-// yields [val, x, y]
-function* orthogonalNeighbors(x, y, grid) {
+function* neighbors(x, y, grid, deltas = neighborDeltas) {
   const maxX = grid[0].length - 1;
   const maxY = grid.length - 1;
-  for (const [xd, yd] of orthogonalDeltas) {
+  for (const [xd, yd] of deltas) {
     const xn = x + xd;
     const yn = y + yd;
     if (xn >= 0 && xn <= maxX && yn >= 0 && yn <= maxY) {
       yield [grid[yn][xn], xn, yn];
     }
   }
+}
+exports.neighbors = neighbors;
+
+function* orthogonalNeighbors(x, y, grid) {
+  yield* neighbors(x, y, grid, orthogonalDeltas);
 }
 exports.orthogonalNeighbors = orthogonalNeighbors;
 
