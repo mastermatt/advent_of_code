@@ -20,6 +20,13 @@ const orthogonalDeltas = [
 ];
 exports.orthogonalDeltas = orthogonalDeltas;
 
+/**
+ * Walk all  possible points of an n-dimensional grid
+ *
+ * Accepts the size of each dimension. e.g. a 1x2x3 3D grid:
+ *  generateCoords(1, 2, 3) ->
+ *  [ 0, 0, 0 ], [ 0, 1, 0 ], [ 0, 0, 1 ], [ 0, 1, 1 ], [ 0, 0, 2 ], [ 0, 1, 2 ]
+ */
 function* generateCoords(...demSizes) {
   const demCnt = demSizes.length;
   const coords = new Array(demCnt).fill(0);
