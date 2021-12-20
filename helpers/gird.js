@@ -46,6 +46,18 @@ function* generateCoords(...demSizes) {
 }
 exports.generateCoords = generateCoords;
 
+function coordsMatch(...coords) {
+  for (let i = 0; i < coords[0].length; i++) {
+    const val = coords[0][i];
+    for (let j = 1; j < coords.length; j++) {
+      if (coords[j][i] !== val) return false;
+    }
+  }
+
+  return true;
+}
+exports.coordsMatch = coordsMatch;
+
 // for 2 dimensions, just use the `neighborDeltas` array
 function* generateNeighborDeltas(numDimensions) {
   const demSizes = new Array(numDimensions).fill(3);
