@@ -1,0 +1,40 @@
+1 14 12     push in[0] + 12
+1 10 9      push in[1] + 9
+1 13 8      push in[2] + 8
+26 -8 3     pop in[3] = popped - 8
+1 11 0      push in[4]
+1 11 11     push in[5] + 11
+1 14 10     push in[6] + 10
+26 -11 13   pop in[7] = popped - 11
+1 14 3      push in[8] + 3
+26 -1 10    pop in[9] = popped - 1
+26 -8 10    pop in[10] = popped - 8
+26 -5 14    pop in[11] = popped - 5
+26 -16 6    pop in[12] = popped - 16
+26 -6 5     pop in[13] = popped - 6
+
+in[3] = in[2]
+in[7] = in[6] - 1
+in[9] = in[8] + 2
+in[10] = in[5] - 3
+in[11] = in[4] - 5
+in[12] = in[1] - 7
+in[13] = in[0] + 6
+
+in[0] = in[13] - 6
+in[1] = in[12] + 7
+in[2] = in[3]
+in[3] = in[2]
+in[4] = in[11] + 5
+in[5] = in[10] - 3
+in[6] = in[7] + 1
+in[7] = in[6] - 1
+in[8] = in[9] - 2
+in[9] = in[8] + 2
+in[10] = in[5] + 3
+in[11] = in[4] - 5
+in[12] = in[1] - 7
+in[13] = in[0] + 6
+
+39999698799429
+18116121134117
