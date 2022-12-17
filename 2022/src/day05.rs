@@ -10,8 +10,8 @@ use aoc_runner_derive::{aoc, aoc_generator};
 // move 2 from 2 to 1
 // move 1 from 1 to 2
 
-type Stacks = Vec<Vec<char>>;                   // [A-Z][]  - Grid of stacks, rows.
-type Procedure = Vec<(usize, usize, usize)>;    // [(count, from, to)]
+type Stacks = Vec<Vec<char>>; // [A-Z][]  - Grid of stacks, rows.
+type Procedure = Vec<(usize, usize, usize)>; // [(count, from, to)]
 
 // https://stackoverflow.com/a/64499219/823942
 fn transpose(v: Vec<Vec<char>>) -> Vec<Vec<char>> {
