@@ -4,7 +4,7 @@ const { generateCoords, neighborDeltas } = require("../../helpers/gird");
 const input = readFile(__dirname, "./input.txt");
 // const input = readFile(__dirname, "./sample.txt");
 
-function printGrid(grid) {
+function _printGrid(grid) {
   grid.forEach((row) => console.log(row.join("")));
 }
 
@@ -19,7 +19,7 @@ function step(grid) {
     if (curr === ".") continue;
 
     const neighbors = neighborDeltas.filter(
-      ([dx, dy]) => (grid[x + dx] || [])[y + dy] === "#"
+      ([dx, dy]) => (grid[x + dx] || [])[y + dy] === "#",
     ).length;
 
     let occ = curr;
@@ -71,7 +71,7 @@ function step2(grid) {
     }
 
     const neighbors = neighborDeltas.filter(([dx, dy]) =>
-      look(grid, x, y, dx, dy)
+      look(grid, x, y, dx, dy),
     ).length;
 
     let occ = curr;

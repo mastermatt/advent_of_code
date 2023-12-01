@@ -17,7 +17,7 @@ const input = readFile(__dirname, "./input.txt");
 // Refactoring the orbit map into two objects that track relationships and walk counts separately
 // allowed for a lot of simplifying everywhere else.
 const orbits = Object.fromEntries(
-  input.map((line) => line.split(")").reverse())
+  input.map((line) => line.split(")").reverse()),
 );
 const counts = new DefaultDict(0);
 

@@ -6,7 +6,7 @@ const input = readFile(__dirname, "./input.txt").map((dimensions) =>
   dimensions
     .split("x")
     .map(Number)
-    .sort((a, b) => a - b)
+    .sort((a, b) => a - b),
 );
 
 const partOne = input.reduce((acc, d) => {

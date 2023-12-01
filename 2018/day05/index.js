@@ -21,7 +21,7 @@ console.log("part one", partOne); // 10766
 
 const units = new Set(input.toLowerCase());
 const lengths = [...units].map((unit) =>
-  reactPolymer(input.replace(new RegExp(unit, "ig"), ""))
+  reactPolymer(input.replace(new RegExp(unit, "ig"), "")),
 );
 
 const partTwo = Math.min(...lengths);

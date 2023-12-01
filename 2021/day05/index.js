@@ -3,7 +3,7 @@ const readFile = require("../../helpers/readFile");
 const CoordinateSet = require("../../helpers/coordinateSet");
 
 const input = readFile(__dirname, "./input.txt").map((line) =>
-  line.split(" -> ").map((pair) => pair.split(",").map(Number))
+  line.split(" -> ").map((pair) => pair.split(",").map(Number)),
 );
 
 // using two Sets instead of a Map because it's noticeably faster

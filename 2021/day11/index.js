@@ -3,7 +3,7 @@ const readFile = require("../../helpers/readFile");
 const { generateCoords, neighbors } = require("../../helpers/gird");
 
 const input = readFile(__dirname, "./input.txt").map((line) =>
-  line.split("").map(Number)
+  line.split("").map(Number),
 );
 
 let stepCounter = 0;

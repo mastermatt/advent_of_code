@@ -4,7 +4,7 @@ const { generateCoords, orthogonalNeighbors } = require("../../helpers/gird");
 const CoordinateSet = require("../../helpers/coordinateSet");
 
 const input = readFile(__dirname, "./input.txt").map((line) =>
-  line.split("").map(Number)
+  line.split("").map(Number),
 );
 
 const lowPoints = [];
@@ -12,7 +12,7 @@ const lowPoints = [];
 for (const [x, y] of generateCoords(input[0].length, input.length)) {
   const pointHeight = input[y][x];
   const isLowest = [...orthogonalNeighbors(x, y, input)].every(
-    ([neighborHeight]) => neighborHeight > pointHeight
+    ([neighborHeight]) => neighborHeight > pointHeight,
   );
 
   if (isLowest) {

@@ -19,7 +19,7 @@ parsed.forEach(([ingredients, allergens]) => {
     if (possibles[allergen]) {
       possibles[allergen] = lodash.intersection(
         possibles[allergen],
-        ingredients
+        ingredients,
       );
     } else {
       possibles[allergen] = ingredients;

@@ -17,7 +17,7 @@ const result = input.reduce(
 
     return acc;
   },
-  [0, 0, 0]
+  [0, 0, 0],
 );
 // console.log(result);
 

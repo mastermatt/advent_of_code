@@ -5,7 +5,7 @@ const input = readFile(__dirname, "./input.txt")[0];
 const buf = Buffer.from(input, "hex");
 const inputBin = buf.reduce(
   (acc, cur) => acc + cur.toString(2).padStart(8, "0"),
-  ""
+  "",
 );
 
 let pointer = 0;

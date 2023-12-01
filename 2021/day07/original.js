@@ -20,6 +20,6 @@ console.log("part one", partOne, partOne === 352997);
 const avg = lodash.sum(input) / input.length;
 const partTwo = Math.min(
   fuelCostTo(Math.floor(avg), true),
-  fuelCostTo(Math.ceil(avg), true)
+  fuelCostTo(Math.ceil(avg), true),
 );
 console.log("part two", partTwo, partTwo === 101571302);

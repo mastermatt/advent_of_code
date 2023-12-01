@@ -78,7 +78,7 @@ const keyGraph = new DefaultDict(Array);
 allKeys.forEach((key) => {
   const [distance, doors] = shortestPath(
     entranceCoordinates,
-    keyCoordinates[key]
+    keyCoordinates[key],
   );
   keyGraph[ENTRANCE].push({ key, distance, doors });
 });

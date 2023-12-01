@@ -22,7 +22,7 @@ const finalImg = new Array(layerPixelCount).fill(transparent);
 layers.forEach((layer) =>
   layer
     .filter((pixelColor, i) => finalImg[i] === transparent)
-    .forEach((pixelColor, i) => (finalImg[i] = pixelColor))
+    .forEach((pixelColor, i) => (finalImg[i] = pixelColor)),
 );
 
 lodash.chunk(finalImg, horizontal).forEach((line) => {

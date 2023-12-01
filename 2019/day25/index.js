@@ -121,7 +121,7 @@ const tryWeight = (droid, items) => {
     .forEach((item) => droid.drop(item));
   const checkpointResult = droid.west();
   const valid = !checkpointResult.includes(
-    "you are ejected back to the checkpoint"
+    "you are ejected back to the checkpoint",
   );
   if (valid) {
     console.log(checkpointResult);

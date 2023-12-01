@@ -116,7 +116,7 @@ const two = (startingData, repetitions, print = false) => {
     .range(repetitions)
     .reduce(
       (levels) => nextStepRecursive(expandLevels(levels)),
-      [startingData]
+      [startingData],
     );
 
   if (print) {

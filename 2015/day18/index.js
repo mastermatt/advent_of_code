@@ -1,11 +1,10 @@
-const Iter = require("es-iter");
 const lodash = require("lodash");
 const readFile = require("../../helpers/readFile");
 const CoordinateSet = require("../../helpers/coordinateSet");
 const { generateCoords, neighborDeltas } = require("../../helpers/gird");
 
 const input = readFile(__dirname, "./input.txt").map((line) =>
-  line.split("").map((char) => char === "#")
+  line.split("").map((char) => char === "#"),
 );
 
 // A light which is on stays on when 2 or 3 neighbors are on, and turns off otherwise.
@@ -15,7 +14,7 @@ function step(grid, sticky) {
   for (const [x, y] of generateCoords(grid.length, grid[0].length)) {
     const curr = grid[x][y];
     const onNeighbors = neighborDeltas.filter(
-      ([dx, dy]) => (grid[x + dx] || [])[y + dy]
+      ([dx, dy]) => (grid[x + dx] || [])[y + dy],
     ).length;
 
     const isOn =

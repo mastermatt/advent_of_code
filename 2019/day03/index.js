@@ -94,7 +94,7 @@ for (const bLine of dirsToWire(bWireDirs)) {
         wireADist +
           wireBDist +
           distance(aLine.a, intersection) +
-          distance(bLine.a, intersection)
+          distance(bLine.a, intersection),
       );
     }
     wireADist += aLine.length;

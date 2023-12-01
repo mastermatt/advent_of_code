@@ -21,7 +21,7 @@ let errorRate = 0;
 const validTickets = [];
 for (const ticket of nearbyTickets) {
   const invalids = ticket.filter(
-    (val) => !rules.some(([_, ranges]) => inRanges(val, ranges))
+    (val) => !rules.some(([_, ranges]) => inRanges(val, ranges)),
   );
 
   errorRate += lodash.sum(invalids);

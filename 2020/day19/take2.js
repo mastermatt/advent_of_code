@@ -61,7 +61,7 @@ function* genPatterns(ruleIdx) {
 
 const patterns31 = [...genPatterns(31)];
 const patterns42 = [...genPatterns(42)];
-const xxx = {
+const _xxx = {
   31: `(?:${patterns31.join("|")})+`,
   42: `(?:${patterns42.join("|")})+`,
 };
@@ -72,7 +72,7 @@ console.log(lodash.intersection(patterns31, patterns42)); // []
 console.log(lodash.countBy(patterns31, "length"));
 console.log(lodash.countBy(patterns42, "length"));
 
-function countValidMessages() {
+function _countValidMessages() {
   const validPatterns = [...genPatterns(0)];
   // console.log(validPatterns.length)
   // console.log(lodash.countBy(validPatterns, 'length'))
@@ -83,7 +83,7 @@ function countValidMessages() {
   //   }
   // );
   const validMessages = receivedMessages.filter((message) =>
-    validPatterns.includes(message)
+    validPatterns.includes(message),
   );
   return validMessages.length;
 }
@@ -122,8 +122,8 @@ const aaa = receivedMessages.filter((message) => {
 const partOne = aaa.length;
 console.log("part one", partOne); // 126
 
-const longerMessages = receivedMessages.filter(
-  (message) => message.length > 24
+const _longerMessages = receivedMessages.filter(
+  (message) => message.length > 24,
 );
 // console.log("#####", byL.length)
 

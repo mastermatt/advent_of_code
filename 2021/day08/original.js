@@ -32,12 +32,12 @@ function signalsToMap(rawSignals) {
 
   const two = signals.find((x) => !x.includes(ffff));
   const three = signals.find(
-    (x) => x.length === 5 && !diffChars(one, x).length
+    (x) => x.length === 5 && !diffChars(one, x).length,
   );
   const five = signals.find((x) => x.length === 5 && ![two, three].includes(x));
   const six = signals.find((x) => x.length === 6 && diffChars(one, x).length);
   const zero = signals.find(
-    (x) => x.includes(eeee) && ![two, six, eight].includes(x)
+    (x) => x.includes(eeee) && ![two, six, eight].includes(x),
   );
   const nine = signals.find((x) => x.length === 6 && ![zero, six].includes(x));
 
@@ -150,7 +150,7 @@ const partOne = a;
 console.log("part one", partOne, partOne === 342);
 
 const outputVals = input.map(([signals, output]) =>
-  outputToNumber(output, signalsToMap(signals))
+  outputToNumber(output, signalsToMap(signals)),
 );
 
 const partTwo = lodash.sum(outputVals);

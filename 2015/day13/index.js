@@ -7,7 +7,7 @@ const map = {};
 
 input.forEach((line) => {
   const matches = line.match(
-    /(\w+) would (\w+) (\d+) happiness units by sitting next to (\w+)\./
+    /(\w+) would (\w+) (\d+) happiness units by sitting next to (\w+)\./,
   );
   const [subject, dir, num, other] = matches.splice(1, 5);
   const units = parseInt(num) * (dir === "lose" ? -1 : 1);

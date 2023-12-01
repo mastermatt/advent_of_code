@@ -7,7 +7,7 @@ const input = readFile(__dirname, "./input.txt").map((line) =>
   line
     .match(/^#(\d+) @ (\d+),(\d+): (\d+)x(\d+)$/)
     .slice(1, 6)
-    .map((digits) => parseInt(digits))
+    .map((digits) => parseInt(digits)),
 );
 
 const map = new DefaultDict(Array);
@@ -26,7 +26,7 @@ console.log("part one", partOne); // 113966
 
 const noOverlaps = lodash.difference(
   input.map(([id]) => id),
-  ...dups
+  ...dups,
 );
 
 const partTwo = noOverlaps[0];

@@ -81,7 +81,7 @@ const findNeighbors = ({ x: startX, y: startY }) => {
 portals.forEach((portal) => {
   portal.adjacent = findNeighbors(portal);
   portal.otherEnd = portals.find(
-    (other) => other.key === portal.key && other.hash !== portal.hash
+    (other) => other.key === portal.key && other.hash !== portal.hash,
   );
 });
 const start = portals.find((p) => p.key === START);

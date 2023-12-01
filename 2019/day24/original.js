@@ -89,13 +89,13 @@ const nextStepRecursive = (current) => {
     adjacentDeltas.forEach((deltas, posIdx) => {
       const adjacentBugs = deltas
         .map(
-          ([shift, jump]) => (current[levelIdx + jump] || [])[posIdx + shift]
+          ([shift, jump]) => (current[levelIdx + jump] || [])[posIdx + shift],
         )
         .filter((char) => char === BUG).length;
 
       destination[levelIdx][posIdx] = nextChar(
         current[levelIdx][posIdx],
-        adjacentBugs
+        adjacentBugs,
       );
     });
   });
@@ -106,7 +106,7 @@ const nextStepRecursive = (current) => {
 const countBugs = (levels) => {
   return levels.reduce(
     (acc, level) => acc + level.filter((char) => char === BUG).length,
-    0
+    0,
   );
 };
 

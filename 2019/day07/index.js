@@ -25,7 +25,7 @@ const potentialSequences2 = permutations(lodash.range(5, 10));
 const runAmpsWithFeedback = (phaseSettingSequence) => {
   let passedSignal = 0;
   const amps = phaseSettingSequence.map(
-    (setting) => new Computer([...input], setting)
+    (setting) => new Computer([...input], setting),
   );
 
   // we assume all the amps will halt on the same loop, so we only check one of them

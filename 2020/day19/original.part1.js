@@ -1,5 +1,4 @@
 const Iter = require("es-iter");
-const lodash = require("lodash");
 const readFile = require("../../helpers/readFile");
 
 // const input = readFile(__dirname, "./input.txt")
@@ -52,12 +51,12 @@ function* genPatterns(ruleIdx) {
 // console.log(x)
 // console.log("#####", x.length)
 
-function countValidMessages() {
+function _countValidMessages() {
   const validPatterns = [...genPatterns(31)];
   console.log(validPatterns.length);
   console.log(validPatterns);
   const validMessages = receivedMessages.filter((message) =>
-    validPatterns.includes(message)
+    validPatterns.includes(message),
   );
   return validMessages.length;
 }

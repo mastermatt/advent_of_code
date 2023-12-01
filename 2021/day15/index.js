@@ -5,7 +5,7 @@ const { orthogonalNeighbors } = require("../../helpers/gird");
 const PriorityQueue = require("../../helpers/priorityQueue");
 
 const input = readFile(__dirname, "./input.txt").map((line) =>
-  line.split("").map(Number)
+  line.split("").map(Number),
 );
 
 function lowestRisk(grid) {

@@ -62,7 +62,7 @@ const seen = new Set([firstCorner.id]);
 
 function orientateFirst() {
   const x = firstCorner.neighbors[0].edges.concat(
-    firstCorner.neighbors[1].edges
+    firstCorner.neighbors[1].edges,
   );
   for (const sym of genSymmetries(firstCorner.raw)) {
     const es = edges(sym);

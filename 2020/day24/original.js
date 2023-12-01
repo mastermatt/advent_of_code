@@ -19,7 +19,7 @@ const x = input
   .map((line) => line.match(/(sw|nw|ne|se|w|e)/g))
   .map((dirs) => dirs.map((dir) => dirsMap[dir]))
   .map((deltas) =>
-    deltas.reduce(([x1, y1, z1], [x2, y2, z2]) => [x1 + x2, y1 + y2, z1 + z2])
+    deltas.reduce(([x1, y1, z1], [x2, y2, z2]) => [x1 + x2, y1 + y2, z1 + z2]),
   );
 
 // console.log(x)

@@ -16,7 +16,7 @@ module.exports = class DefaultDict {
 
           return target[name];
         },
-      }
+      },
     );
   }
 };

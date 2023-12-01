@@ -27,7 +27,7 @@ const instructions = input.map((line) => {
 
 const result = instructions.reduce(
   (acc, [inst, n]) => cmds[inst](acc, n),
-  deck
+  deck,
 );
 
 const partOne = result.indexOf(2019);
@@ -43,7 +43,7 @@ const cmds2 = {
 
 const result2 = instructions.reduce(
   (acc, [inst, n]) => cmds2[inst](acc, deck.length, n),
-  2019
+  2019,
 );
 
 console.log("result 2", result2); // 2519 same yay!

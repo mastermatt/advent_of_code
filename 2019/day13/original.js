@@ -26,7 +26,7 @@ while (comp.outBuf.length) {
 const partOne = lodash.sum(
   screen.map((line) => {
     return line.filter((a) => a === 2).length;
-  })
+  }),
 );
 
 console.log("step one", partOne); // 286

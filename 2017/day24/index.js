@@ -14,7 +14,10 @@ const input = readFile(__dirname, "./input.txt");
 // ]
 
 const map = Object.fromEntries(
-  input.map((line) => [line, line.split("/").map((digits) => parseInt(digits))])
+  input.map((line) => [
+    line,
+    line.split("/").map((digits) => parseInt(digits)),
+  ]),
 );
 
 function* possibleComponents(port, seen) {

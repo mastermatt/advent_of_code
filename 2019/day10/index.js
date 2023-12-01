@@ -59,7 +59,7 @@ positions
 // sort the asteroids along the same angles from closest to farthest (<- @orez- 😀)
 const dist = (x, y) => Math.sqrt((stationX - x) ** 2 + (stationY - y) ** 2);
 Object.values(visibleToStation).forEach((coordinates) =>
-  coordinates.sort((a, b) => dist(...a) - dist(...b))
+  coordinates.sort((a, b) => dist(...a) - dist(...b)),
 );
 
 const vaporizedCoordinates = [];

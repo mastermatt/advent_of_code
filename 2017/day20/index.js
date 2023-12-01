@@ -30,7 +30,7 @@ const sorted = lodash
   .sort(
     (a, b) =>
       sumAbs(accelerations[a]) - sumAbs(accelerations[b]) ||
-      sumAbs(velocities[a]) - sumAbs(velocities[b])
+      sumAbs(velocities[a]) - sumAbs(velocities[b]),
   );
 
 const partOne = sorted[0];

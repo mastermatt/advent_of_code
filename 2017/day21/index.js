@@ -19,7 +19,7 @@ const rules = Object.fromEntries(
   input
     .map((line) => line.split(" => "))
     .map(([from, to]) => [...genSymRules(from, to)])
-    .flat()
+    .flat(),
 );
 // console.log(rules);
 
@@ -35,12 +35,12 @@ function enhance(grid) {
       .map((idx) =>
         grid[subSize * subIdxY + idx].slice(
           subSize * subIdxX,
-          subSize * subIdxX + subSize
-        )
+          subSize * subIdxX + subSize,
+        ),
       );
     const newSub = rules[unsplit(ogSub)];
     newSub.forEach((row, idx) =>
-      result[newSubSize * subIdxY + idx].push(...row)
+      result[newSubSize * subIdxY + idx].push(...row),
     );
   }
 

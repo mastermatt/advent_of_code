@@ -9,7 +9,7 @@ const parsed = input
     chunk
       .split("..")
       .map(Number)
-      .sort((a, b) => a - b)
+      .sort((a, b) => a - b),
   );
 
 const [[minX, maxX], [minY, maxY]] = parsed;

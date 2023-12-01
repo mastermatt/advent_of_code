@@ -38,7 +38,7 @@ const produceFuel = (requiredQty) => {
     const multiplier = Math.ceil(neededQty / chart.producedQty);
 
     const inputShorts = chart.inputs.filter(
-      ({ key, requiredQty }) => bank[key].available < requiredQty * multiplier
+      ({ key, requiredQty }) => bank[key].available < requiredQty * multiplier,
     );
 
     if (!inputShorts.length) {

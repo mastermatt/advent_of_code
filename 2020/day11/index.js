@@ -10,7 +10,7 @@ const input = readFile(__dirname, "./input.txt");
 
 const countOcc = (grid) =>
   grid.flat().filter((char) => char === OCCUPIED).length;
-const printGrid = (grid) => grid.forEach((row) => console.log(row.join("")));
+const _printGrid = (grid) => grid.forEach((row) => console.log(row.join("")));
 
 // If a seat is empty (L) and there are no occupied seats adjacent to it, the seat becomes occupied.
 // If a seat is occupied (#) and four or more seats adjacent to it are also occupied, the seat becomes empty.
@@ -25,7 +25,7 @@ function step(grid) {
     if (curr === FLOOR) continue;
 
     const neighbors = neighborDeltas.filter(
-      ([dx, dy]) => (grid[x + dx] || [])[y + dy] === OCCUPIED
+      ([dx, dy]) => (grid[x + dx] || [])[y + dy] === OCCUPIED,
     ).length;
 
     if (curr === EMPTY && neighbors === 0) result[x][y] = OCCUPIED;
@@ -65,7 +65,7 @@ function step2(grid) {
     if (curr === FLOOR) continue;
 
     const neighbors = neighborDeltas.filter(([dx, dy]) =>
-      seesOccupied(grid, x, y, dx, dy)
+      seesOccupied(grid, x, y, dx, dy),
     ).length;
 
     if (curr === EMPTY && neighbors === 0) result[x][y] = OCCUPIED;

@@ -1,7 +1,7 @@
 const readFile = require("../../helpers/readFile");
 
 const input = readFile(__dirname, "./input.txt").map((line) =>
-  line.replace(",", "").split(" ")
+  line.replace(",", "").split(" "),
 );
 
 const registers = { a: 0, b: 0 };

@@ -8,7 +8,7 @@ const input = readFile(__dirname, "./input.txt").map((line) =>
   line
     .match(regexp)
     .slice(2, 5)
-    .map((digits) => parseInt(digits))
+    .map((digits) => parseInt(digits)),
 );
 
 function getDistances(time) {

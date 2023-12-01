@@ -16,49 +16,49 @@ const input = fs
 // - Using position mode, consider whether the input is equal to 8; output 1 (if it is) or 0 (if it is not).
 assert.deepStrictEqual(
   computer.execute([3, 9, 8, 9, 10, 9, 4, 9, 99, -1, 8], [2]),
-  [0]
+  [0],
 );
 assert.deepStrictEqual(
   computer.execute([3, 9, 8, 9, 10, 9, 4, 9, 99, -1, 8], [8]),
-  [1]
+  [1],
 );
 
 // - Using position mode, consider whether the input is less than 8; output 1 (if it is) or 0 (if it is not).
 assert.deepStrictEqual(
   computer.execute([3, 9, 7, 9, 10, 9, 4, 9, 99, -1, 8], [7]),
-  [1]
+  [1],
 );
 assert.deepStrictEqual(
   computer.execute([3, 9, 7, 9, 10, 9, 4, 9, 99, -1, 8], [8]),
-  [0]
+  [0],
 );
 assert.deepStrictEqual(
   computer.execute([3, 9, 7, 9, 10, 9, 4, 9, 99, -1, 8], [9]),
-  [0]
+  [0],
 );
 
 // - Using immediate mode, consider whether the input is equal to 8; output 1 (if it is) or 0 (if it is not).
 assert.deepStrictEqual(
   computer.execute([3, 3, 1108, -1, 8, 3, 4, 3, 99], [2]),
-  [0]
+  [0],
 );
 assert.deepStrictEqual(
   computer.execute([3, 3, 1108, -1, 8, 3, 4, 3, 99], [8]),
-  [1]
+  [1],
 );
 
 // - Using immediate mode, consider whether the input is less than 8; output 1 (if it is) or 0 (if it is not).
 assert.deepStrictEqual(
   computer.execute([3, 3, 1107, -1, 8, 3, 4, 3, 99], [7]),
-  [1]
+  [1],
 );
 assert.deepStrictEqual(
   computer.execute([3, 3, 1107, -1, 8, 3, 4, 3, 99], [8]),
-  [0]
+  [0],
 );
 assert.deepStrictEqual(
   computer.execute([3, 3, 1107, -1, 8, 3, 4, 3, 99], [9]),
-  [0]
+  [0],
 );
 
 // Here are some jump tests that take an input, then output 0 if the input was zero or 1 if the input was non-zero:
@@ -67,24 +67,24 @@ assert.deepStrictEqual(
 assert.deepStrictEqual(
   computer.execute(
     [3, 12, 6, 12, 15, 1, 13, 14, 13, 4, 13, 99, -1, 0, 1, 9],
-    [0]
+    [0],
   ),
-  [0]
+  [0],
 );
 assert.deepStrictEqual(
   computer.execute(
     [3, 12, 6, 12, 15, 1, 13, 14, 13, 4, 13, 99, -1, 0, 1, 9],
-    [2]
+    [2],
   ),
-  [1]
+  [1],
 );
 assert.deepStrictEqual(
   computer.execute([3, 3, 1105, -1, 9, 1101, 0, 0, 12, 4, 12, 99, 1], [0]),
-  [0]
+  [0],
 );
 assert.deepStrictEqual(
   computer.execute([3, 3, 1105, -1, 9, 1101, 0, 0, 12, 4, 12, 99, 1], [2]),
-  [1]
+  [1],
 );
 
 const partOne = computer.execute([...input], [1]).pop();

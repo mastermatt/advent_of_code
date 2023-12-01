@@ -98,7 +98,7 @@ function* possibleMoves(map, currIdx) {
   }
 }
 
-function printMap(map) {
+function _printMap(map) {
   // #############
   // #...........#
   // ###D#A#C#C###
@@ -113,7 +113,7 @@ function printMap(map) {
   const hall = map.slice(-hallLength).map(char).join("");
   const row = (i) =>
     `#${char(map[i])}#${char(map[roomSize + i])}#${char(
-      map[roomSize * 2 + i]
+      map[roomSize * 2 + i],
     )}#${char(map[roomSize * 3 + i])}#`;
 
   if (map.length === 19)

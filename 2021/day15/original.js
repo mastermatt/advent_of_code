@@ -4,7 +4,7 @@ const CoordinateMap = require("../../helpers/coordinateMap");
 const { orthogonalNeighbors } = require("../../helpers/gird");
 
 const input = readFile(__dirname, "./input.txt").map((line) =>
-  line.split("").map(Number)
+  line.split("").map(Number),
 );
 
 function lowestRisk(grid) {

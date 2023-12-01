@@ -3,7 +3,7 @@ const { orthogonalDeltas } = require("../../helpers/gird");
 const CoordinateSet = require("../../helpers/coordinateSet");
 
 const input = readFile(__dirname, "./input.txt").map((line) =>
-  line.split("").map(Number)
+  line.split("").map(Number),
 );
 // const input = readFile(__dirname, "./example.txt").map(line => line.split('').map(Number));
 

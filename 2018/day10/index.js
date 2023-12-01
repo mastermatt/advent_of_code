@@ -2,7 +2,7 @@ const lodash = require("lodash");
 const readFile = require("../../helpers/readFile");
 
 const input = readFile(__dirname, "./input.txt").map((line) =>
-  line.match(/-?\d+/g).map(Number)
+  line.match(/-?\d+/g).map(Number),
 );
 
 function step(mul = 1) {

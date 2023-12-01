@@ -50,7 +50,7 @@ function outputToDigits(rawOutput, signalMap) {
 }
 
 const outputDigits = input.map(([signals, output]) =>
-  outputToDigits(output, signalsToMap(signals))
+  outputToDigits(output, signalsToMap(signals)),
 );
 
 const desiredDigits = ["1", "4", "7", "8"];

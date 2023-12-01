@@ -11,7 +11,7 @@ input.forEach((line) => {
 });
 
 const severities = depths.map((range, depth) =>
-  depth % (range * 2 - 2) === 0 ? range * depth : 0
+  depth % (range * 2 - 2) === 0 ? range * depth : 0,
 );
 
 const partOne = lodash.sum(severities);
@@ -19,7 +19,7 @@ console.log("part one", partOne); // 2164
 
 function getsCaught(delay) {
   return !!depths.find(
-    (range, depth) => (depth + delay) % (range * 2 - 2) === 0
+    (range, depth) => (depth + delay) % (range * 2 - 2) === 0,
   );
 }
 

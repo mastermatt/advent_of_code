@@ -29,7 +29,7 @@ function totalWeight(name) {
   if (!node.totalWeight) {
     node.totalWeight = node.subs.reduce(
       (acc, sub) => acc + totalWeight(sub),
-      node.weight
+      node.weight,
     );
   }
   return node.totalWeight;
@@ -51,7 +51,7 @@ const oddWeight =
   subWeights[0] === subWeights[1] ? subWeights.pop() : subWeights.shift();
 const weightDiff = oddWeight - subWeights[0];
 const badBoy = topUnbalanced.subs.find(
-  (sub) => map[sub].totalWeight === oddWeight
+  (sub) => map[sub].totalWeight === oddWeight,
 );
 // console.log(subWeights, oddWeight, weightDiff, badBoy, map[badBoy].weight)
 

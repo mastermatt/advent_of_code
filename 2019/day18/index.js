@@ -91,7 +91,7 @@ const buildGraph = (map, keyCoordinates, entranceCoords) => {
     const [distance, doors] = shortestPath(
       map,
       keyCoordinates[a],
-      keyCoordinates[b]
+      keyCoordinates[b],
     );
     if (distance) {
       graph[a].push({ key: b, distance, doors });

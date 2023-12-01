@@ -5,7 +5,7 @@ const readFile = require("../../helpers/readFile");
 
 console.time();
 const input = readFile(__dirname, "./sample2.txt").map((line) =>
-  line.split("")
+  line.split(""),
 );
 
 const ENTRANCE = "@";

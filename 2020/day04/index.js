@@ -34,13 +34,15 @@ const req = {
 };
 
 const valid = passports.filter((pp) =>
-  Object.keys(req).every((key) => key in pp)
+  Object.keys(req).every((key) => key in pp),
 );
 const partOne = valid.length;
 console.log("part one", partOne); // 182
 
 const reallyValid = passports.filter((passport) =>
-  Object.entries(req).every(([key, fn]) => key in passport && fn(passport[key]))
+  Object.entries(req).every(
+    ([key, fn]) => key in passport && fn(passport[key]),
+  ),
 );
 
 const partTwo = reallyValid.length;
