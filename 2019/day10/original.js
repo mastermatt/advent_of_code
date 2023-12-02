@@ -1,4 +1,3 @@
-
 const DefaultDict = require("../../helpers/defaultdict");
 const readFile = require("../../helpers/readFile");
 
