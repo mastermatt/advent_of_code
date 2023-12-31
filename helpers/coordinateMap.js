@@ -23,6 +23,10 @@ module.exports = class CoordinateMap extends Map {
     }
   }
 
+  [Symbol.iterator]() {
+    return this.entries();
+  }
+
   *keys() {
     for (const coords of super.keys()) {
       yield this.dekey(coords);
