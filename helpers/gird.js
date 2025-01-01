@@ -29,7 +29,7 @@ const diagonalDeltas = [
 exports.diagonalDeltas = diagonalDeltas;
 
 /**
- * Walk all  possible points of an n-dimensional grid
+ * Walk all possible points of an n-dimensional grid
  *
  * Accepts the size of each dimension. e.g. a 1x2x3 3D grid:
  *  generateCoords(1, 2, 3) ->
@@ -53,6 +53,16 @@ function* generateCoords(...demSizes) {
   }
 }
 exports.generateCoords = generateCoords;
+
+/**
+ * Yields all values and coords of a 2D array. [val, x, y]
+ */
+function* walkGrid(grid) {
+  for (const [x, y] of generateCoords(grid[0].length, grid.length)) {
+    yield [grid[y][x], x, y];
+  }
+}
+exports.walkGrid = walkGrid;
 
 function coordsMatch(...coords) {
   for (let i = 0; i < coords[0].length; i++) {
